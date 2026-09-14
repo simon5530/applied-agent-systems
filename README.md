@@ -5,9 +5,11 @@ AI agent systems.
 
 ## Status
 
-**Private learning skeleton.** The repository will stay private until its first
-publication audit. Reusable concepts and lab templates live here; project-specific
-implementation evidence remains in the corresponding project repositories.
+**Work in progress — continuously updated.** This public learning repository grows
+alongside hands-on projects. Notes may be refined as experiments reveal better
+explanations or engineering trade-offs. Reusable concepts and lab templates live
+here; project-specific implementation evidence remains in the corresponding
+project repositories.
 
 ## Why a separate learning hub?
 
@@ -58,4 +60,4 @@ across projects.
 
 ## License
 
-Released under the [MIT License](LICENSE) when published.
+Released under the [MIT License](LICENSE).
