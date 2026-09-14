@@ -27,6 +27,7 @@
 
 ## ADR-004: Keep the initial repository private
 
-- **Status:** accepted
+- **Status:** completed
 - **Decision:** Run the same privacy, secret, license, and anonymous-access publication
   gate used by the project repositories before making this hub public.
+- **Outcome:** The gate passed on 2026-09-14 and the repository was published.

@@ -1,5 +1,16 @@
 # Learning log
 
+## 2026-09-14 — Selective adoption of external agent skills
+
+- Agent skills are executable operating procedures and supply-chain dependencies,
+  not just prompt snippets.
+- Precise context pointers, progressive disclosure, shared domain language, and
+  checkable completion criteria improve reliability without bloating global context.
+- Adopted `diagnosing-bugs`, `domain-modeling`, and `writing-for-agents` from a
+  pinned, reviewed upstream revision; deferred workflows that require unnecessary
+  questioning, issue-tracker ceremony, or sub-agents.
+- See [Agent skill design and adoption](AGENT_SKILLS.md).
+
 ## 2026-09-14 — Memory source/index identity
 
 - Durable memory files and their semantic index are separate layers.
