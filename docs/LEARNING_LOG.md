@@ -1,5 +1,18 @@
 # Learning log
 
+## 2026-09-15 — Ingress, gateway, nodes, and migration
+
+- A webhook is an event contract; ngrok and Tailscale are transport/exposure choices;
+  the gateway is the runtime authority.
+- Public SaaS webhooks and private wearable access require different ingress trust
+  models even when they reach the same gateway.
+- Moving a tunnel does not move the gateway, and adding a GPU does not improve the
+  gateway control plane by itself.
+- Add devices, sessions, agents, nodes, and gateways for different reasons; one active
+  gateway is the simplest safe default.
+- A verified backup becomes recovery evidence only after a restore rehearsal.
+- See [Deployment topology and migration](DEPLOYMENT_TOPOLOGIES.md).
+
 ## 2026-09-15 — Milestone-based learning capture
 
 - Automatic context compaction is a runtime safeguard, not a controllable workflow

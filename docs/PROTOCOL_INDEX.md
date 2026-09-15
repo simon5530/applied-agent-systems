@@ -5,8 +5,11 @@
 | HTTP / REST | Request-response interoperability | Model-compatible APIs, health checks | OpenClaw Wearables |
 | JSON | Structured portable data | Agent requests, tool inputs, configuration | OpenClaw Wearables |
 | TLS / HTTPS | Transport confidentiality and server identity | Private wearable-to-gateway traffic | OpenClaw Wearables |
+| WebSocket | Long-lived bidirectional connection | Control UI and remote node connection to a gateway | OpenClaw Wearables |
+| Reverse tunnel | Outbound-established public ingress | Delivering signed SaaS webhooks to a loopback service | OpenClaw Wearables |
+| Overlay network | Private addressing across networks | Tailnet access for wearables, operators, and nodes | OpenClaw Wearables |
 | OAuth 2.0 | Scoped delegated access | Calendar access without password sharing | Agent Liaison |
-| Webhook | Event-driven server notification | Channel messages and calendar changes | Agent Liaison |
+| Webhook | Event-driven server notification | LINE channel messages and calendar changes | Both |
 | iCalendar (RFC 5545) | Portable calendar representation | Events, recurrence, VFREEBUSY | Agent Liaison |
 | CalDAV (RFC 4791) | Standard calendar access | Provider-neutral free/busy queries | Agent Liaison |
 | IANA time zones | Unambiguous civil time | DST-safe scheduling decisions | Agent Liaison |
