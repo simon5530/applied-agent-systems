@@ -47,6 +47,7 @@ hub creates one durable map without turning every project README into a textbook
 - [Pattern index](docs/PATTERN_INDEX.md)
 - [Agent skill design and adoption](docs/AGENT_SKILLS.md)
 - [Learning log](docs/LEARNING_LOG.md)
+- [Learning capture workflow](docs/LEARNING_CAPTURE.md)
 - [Decisions](docs/DECISIONS.md)
 - [Labs](labs/README.md)
 - [Project applications](projects/README.md)

@@ -1,5 +1,14 @@
 # Learning log
 
+## 2026-09-15 — Milestone-based learning capture
+
+- Automatic context compaction is a runtime safeguard, not a controllable workflow
+  hook.
+- Durable learning should be captured when a decision, diagnosis, protocol, security
+  boundary, or verification becomes reusable.
+- Public notes are curated engineering artifacts rather than exported chat logs.
+- See [Learning capture workflow](LEARNING_CAPTURE.md).
+
 ## 2026-09-14 — Selective adoption of external agent skills
 
 - Agent skills are executable operating procedures and supply-chain dependencies,
