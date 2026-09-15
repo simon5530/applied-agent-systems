@@ -1,5 +1,17 @@
 # Learning log
 
+## 2026-09-15 — Conversation-first coordination
+
+- A workflow can use messaging as its command surface and a calendar as its visual
+  system of record without creating a new destination application.
+- Natural-language extraction produces a candidate, not permission to act.
+- Agent-to-agent coordination should exchange minimal proposals, authority labels,
+  and expiry rather than raw calendars or chat history.
+- Priority scoring should recommend conflict resolution; it must not silently grant
+  authority to displace a confirmed commitment.
+- A separate tentative calendar makes reversible agent holds visible without
+  confusing them with confirmed events.
+
 ## 2026-09-15 — Ingress, gateway, nodes, and migration
 
 - A webhook is an event contract; ngrok and Tailscale are transport/exposure choices;

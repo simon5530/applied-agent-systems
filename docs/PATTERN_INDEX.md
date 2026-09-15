@@ -50,3 +50,26 @@ persistence, and unavailable humans—not only the happy path.
 
 Carry one non-secret identifier across channel, agent, tool, and audit events so a
 workflow can be reconstructed without logging sensitive content.
+
+## Conversation as UI
+
+Use an existing communication channel for commands, clarification, approval, and
+status; use the system of record for inspection. A thin state and policy service can
+support the workflow without requiring users to adopt another destination app.
+
+## Candidate before commitment
+
+Extraction identifies a possible action, not authority to execute it. Convert natural
+language into a candidate, validate missing facts and conflicts, then apply explicit
+policy before creating an external commitment.
+
+## Derived-data boundary
+
+Expose the smallest fact needed across an agent boundary—for example availability,
+not event titles; a proposal and expiry, not a conversation transcript.
+
+## Human-agent-agent-human handoff
+
+Each person's agent applies private preferences and releases only a minimal proposal
+envelope. Humans retain approval for consequential commitments while agents handle
+normalization, availability, alternatives, expiry, and audit.
