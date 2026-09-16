@@ -1,5 +1,24 @@
 # Learning log
 
+## 2026-09-16 — Prove authority flow before adding data sources
+
+- Calendar access does not make an unreliable agent handoff safe.
+- First prove correlation, expiry, owner approval, and bounded return delivery inside
+  one runtime; then carry the same typed capability across A2A.
+- Without an authoritative schedule source, proposed times are candidates rather
+  than tentative availability.
+- Tool permissions should reflect real runtime state: the current Guest can use its
+  own memory but does not have Node, Calendar, owner-memory, or transcript access.
+- External adapters should enrich a proven state machine, not redefine who has
+  authority to confirm a commitment.
+- A live same-runtime test proved that tool factories can enforce both agent identity
+  and exact session allowlists: Main and an unrelated Guest could not see the
+  requester tools, while the intended Guest completed candidate → owner approval →
+  confirmed-status retrieval.
+- Generic cross-agent messaging and Gateway-wide transcript visibility were then
+  disabled. The typed broker continued to work because its capability boundary does
+  not depend on arbitrary session access.
+
 ## 2026-09-16 — A2A transport versus capability safety
 
 - A2A standardizes discovery, Agent Cards and Skills, Messages and structured Parts,

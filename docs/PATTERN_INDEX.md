@@ -63,6 +63,14 @@ Extraction identifies a possible action, not authority to execute it. Convert na
 language into a candidate, validate missing facts and conflicts, then apply explicit
 policy before creating an external commitment.
 
+## Candidate is not tentative availability
+
+Use precise authority labels. A **candidate** is generated from constraints and policy
+but may not have been checked against a system of record. **Tentative availability**
+requires an authoritative conflict check but still awaits human approval. Only an
+explicit owner decision creates a **confirmed** commitment. Clear terms prevent an
+agent from overstating what its data sources actually prove.
+
 ## Derived-data boundary
 
 Expose the smallest fact needed across an agent boundary—for example availability,
@@ -80,3 +88,8 @@ Keep an untrusted agent's general tool policy minimal and expose one typed busin
 capability with a fixed target, bounded input, derived output, policy checks, and
 audit. This avoids solving every new workflow by granting filesystem, calendar,
 node, transcript, or generic cross-agent access.
+
+Where the runtime supports tool factories, enforce the boundary twice: restrict the
+tool name in the agent policy, then return no tool instance unless both the agent and
+exact requester session match the allowlist. Disable generic cross-agent session
+visibility when the broker does not require it.
