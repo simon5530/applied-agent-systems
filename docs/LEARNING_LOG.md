@@ -1,5 +1,16 @@
 # Learning log
 
+## 2026-09-16 — A2A transport versus capability safety
+
+- A2A standardizes discovery, Agent Cards and Skills, Messages and structured Parts,
+  Task lifecycle, protocol bindings, and authentication advertisement.
+- Authentication identifies a caller; the A2A server still implements per-Skill,
+  data-level, and action-level authorization.
+- A2A Messages can carry untrusted text or files, so protocol compliance alone does
+  not prevent prompt injection or instruction smuggling.
+- A typed capability broker can later become an A2A Skill; its validation, derived-
+  data boundary, approval policy, idempotency, and audit remain application logic.
+
 ## 2026-09-16 — Brokered internal agent handoff
 
 - Two agents on one Gateway can coordinate without adopting a cross-system A2A

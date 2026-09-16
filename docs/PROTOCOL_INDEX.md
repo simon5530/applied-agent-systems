@@ -14,6 +14,7 @@
 | CalDAV (RFC 4791) | Standard calendar access | Provider-neutral free/busy queries | Agent Liaison |
 | IANA time zones | Unambiguous civil time | DST-safe scheduling decisions | Agent Liaison |
 | OpenAI-compatible API | Shared model request schema | BYOA device integration | OpenClaw Wearables |
+| A2A Protocol 1.0 | Discovery, messaging, and Task lifecycle across independent agents | Future cross-system Agent Liaison negotiation | Agent Liaison |
 | Git | Versioned, reviewable change history | Learning evidence and ADR evolution | Both |
 
 ## How to add an entry
