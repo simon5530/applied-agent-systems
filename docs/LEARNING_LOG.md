@@ -1,5 +1,16 @@
 # Learning log
 
+## 2026-09-16 — Brokered internal agent handoff
+
+- Two agents on one Gateway can coordinate without adopting a cross-system A2A
+  protocol.
+- A generic cross-agent message tool enlarges prompt-injection and transcript-access
+  risk; a typed capability broker is the narrower control surface.
+- Guest access can stay minimal while the owner agent returns derived availability,
+  requests human approval, commits a selected slot, and signals final status.
+- Add a standard A2A protocol only when independently administered agents need
+  discovery, authentication, portable task exchange, and status interoperability.
+
 ## 2026-09-15 — Conversation-first coordination
 
 - A workflow can use messaging as its command surface and a calendar as its visual

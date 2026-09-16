@@ -73,3 +73,10 @@ not event titles; a proposal and expiry, not a conversation transcript.
 Each person's agent applies private preferences and releases only a minimal proposal
 envelope. Humans retain approval for consequential commitments while agents handle
 normalization, availability, alternatives, expiry, and audit.
+
+## Capability broker
+
+Keep an untrusted agent's general tool policy minimal and expose one typed business
+capability with a fixed target, bounded input, derived output, policy checks, and
+audit. This avoids solving every new workflow by granting filesystem, calendar,
+node, transcript, or generic cross-agent access.
