@@ -1,5 +1,17 @@
 # Learning log
 
+## 2026-09-17 — Bounded private-context enrichment
+
+- A public-facing agent does not need direct access to owner memory to benefit from
+  it; a fixed owner workflow can retrieve context and return only derived candidates.
+- Schema-level provenance labels make the boundary testable: `main_memory` requires
+  an explicit scheduling-preference or time-boundary basis, while `policy_only`
+  cannot claim one.
+- Empty or irrelevant memory search results are a normal condition. The safe behavior
+  is to use typed request constraints, not to manufacture a personal preference.
+- Private context can influence a reversible candidate, but it cannot grant authority
+  to confirm a consequential commitment.
+
 ## 2026-09-16 — Prove authority flow before adding data sources
 
 - Calendar access does not make an unreliable agent handoff safe.

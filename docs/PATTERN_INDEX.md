@@ -76,6 +76,14 @@ agent from overstating what its data sources actually prove.
 Expose the smallest fact needed across an agent boundary—for example availability,
 not event titles; a proposal and expiry, not a conversation transcript.
 
+## Context firewall with provenance labels
+
+Let the privileged agent retrieve private context inside its own boundary, then pass
+only validated derived output through a typed broker. Use a small allowlist of source
+labels such as `policy_only` or `main_memory`; never pass memory excerpts or arbitrary
+rationale to the untrusted agent. If retrieval finds no explicit fact that supports a
+decision, fall back to request constraints rather than inferring a preference.
+
 ## Human-agent-agent-human handoff
 
 Each person's agent applies private preferences and releases only a minimal proposal
