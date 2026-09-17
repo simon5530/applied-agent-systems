@@ -41,6 +41,17 @@ actions.
 Fallback improves availability only when every candidate still satisfies context,
 tool-use, safety, and reliability requirements.
 
+Treat a fallback as an executable recovery path, not a model name in configuration.
+Keep it only when it has an independent credential/quota path, passes a live tool-use
+probe, meets the workload's safety floor, and fails over within an acceptable latency.
+An unreachable or quota-exhausted fallback reduces reliability by extending failure
+time. When no candidate passes, an empty fallback chain is safer and more truthful.
+
+Model-size and family heuristics are screening signals rather than universal proof of
+safety. A runtime audit can reject a known weak tier and separately flag small parameter
+counts, but operational admission still requires task-specific evaluation and a live
+provider proof.
+
 ## Failure-path testing
 
 Test unauthorized requests, stale state, provider failure, duplicate delivery, restart

@@ -1,5 +1,23 @@
 # Learning log
 
+## 2026-09-17 — Failover must be proven, not merely configured
+
+- A heartbeat failure after quota exhaustion can mean the entire model chain was
+  attempted and exhausted; it does not prove that failover was skipped.
+- In this incident, the primary route exhausted its subscription, one weak Ollama
+  model timed out, Google returned quota exhaustion, and a local Ollama route was
+  unreachable. The configured chain increased latency without providing recovery.
+- The safe interim state is an empty fallback list for every agent: fail fast and
+  visibly until an independent, high-quality provider passes a live runtime probe.
+- Security audit heuristics use both known model-family quality tiers and a separate
+  parameter-count warning. They are admission screens, not substitutes for workload
+  evaluation.
+- Remove an unused provider rather than preserving a synthetic or plaintext API-key
+  marker. Pin external official plugins to exact versions and verify registry metadata,
+  package locks, plugin loading, and compatibility.
+- Heartbeat inference and heartbeat delivery are separate failure domains. A healthy
+  model cannot deliver an alert when no owner route resolves; diagnose both layers.
+
 ## 2026-09-17 — Bounded private-context enrichment
 
 - A public-facing agent does not need direct access to owner memory to benefit from
