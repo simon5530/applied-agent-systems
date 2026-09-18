@@ -1,5 +1,19 @@
 # Learning log
 
+## 2026-09-18 — Govern agent effects, not private reasoning
+
+- When an external requester is also an agent, its internal prompt, model, tools, and
+  reasoning are neither observable nor a trustworthy enforcement surface.
+- Put deterministic controls at ingress, data access, tool invocation, network egress,
+  and commit points. Treat every call as a new authorization decision.
+- Workflow orchestration specifies the expected path; a policy-enforced action zone
+  preserves safety invariants even when an agent takes an unexpected path.
+- Sandboxes, gateways, identity systems, policy engines, approvals, and audit logs are
+  complementary layers. No single layer proves that a business effect is safe.
+- Existing projects already cover much of the generic infrastructure. Differentiate
+  through a narrow domain state machine, explicit authority labels, reversible
+  effects, and measurable reduction in human interruption.
+
 ## 2026-09-17 — Failover must be proven, not merely configured
 
 - A heartbeat failure after quota exhaustion can mean the entire model chain was

@@ -112,3 +112,20 @@ Where the runtime supports tool factories, enforce the boundary twice: restrict 
 tool name in the agent policy, then return no tool instance unless both the agent and
 exact requester session match the allowlist. Disable generic cross-agent session
 visibility when the broker does not require it.
+
+## Policy-enforced agent action zone
+
+Place a deterministic reference monitor between untrusted agents and consequential
+resources. Govern what crosses the boundary rather than trying to control an agent's
+private prompts or reasoning.
+
+The boundary should bind authenticated identity and delegation depth to a typed
+intent; authorize the exact data, tool, resource, and effect; apply rate, time, and
+cost budgets; expose only derived output; stage reversible actions; require approval
+for irreversible or socially consequential effects; re-check policy at commit time;
+and emit correlated decision and effect receipts.
+
+A workflow describes how work normally proceeds. A sandbox limits the computation
+an agent can perform. A gateway mediates traffic. A policy engine decides whether an
+action is allowed. An action zone composes these controls so the invariant still
+holds when the agent changes its plan, framework, model, or internal delegation.
