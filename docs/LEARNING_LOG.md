@@ -1,5 +1,20 @@
 # Learning log
 
+## 2026-09-18 — Verify contracts and recover unknown outcomes
+
+- A model can draft an implementation, but consequential execution should depend on
+  an independent executable oracle derived from an inspectable contract.
+- Formal proof establishes conformance to the encoded specification, not that the
+  specification captures the intended behavior. Boundary tests and review must detect
+  weak constraints and trivial solutions.
+- Stable checks should become versioned schemas, tests, policies, or proofs so later
+  runs reuse evidence instead of repeating model self-review.
+- A restart or interrupted mutation makes the result unknown. Read authoritative state
+  before retrying or claiming completion.
+- Diagnose through the real product path when possible. Installation, process health,
+  visible integration, and functional behavior are separate completion criteria.
+- See [Verification over trust and unknown-outcome recovery](PATTERN_INDEX.md#verification-over-trust).
+
 ## 2026-09-18 — Govern agent effects, not private reasoning
 
 - When an external requester is also an agent, its internal prompt, model, tools, and

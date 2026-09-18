@@ -57,6 +57,40 @@ provider proof.
 Test unauthorized requests, stale state, provider failure, duplicate delivery, restart
 persistence, and unavailable humans—not only the happy path.
 
+## Verification over trust
+
+Express consequential behavior as an inspectable contract, then check the produced
+artifact with an independent executable oracle before allowing the effect. Use the
+cheapest adequate oracle: schemas and types, deterministic calculations, linting,
+unit or property tests, dry-runs, policy checks, or formal verification when the
+risk and tractability justify it.
+
+A passing oracle proves only the encoded contract. Review the specification and the
+oracle too, test boundary cases, and reject weakened constraints or trivial solutions.
+Stable checks belong in versioned code so later runs execute evidence instead of
+repeating model self-review.
+
+This qualification is illustrated by Ehrenborg et al., [*A benchmark for vericoding:
+formally verified program synthesis*](https://arxiv.org/html/2509.22908v1) (arXiv
+preprint v1, September 2025): proof checking was supplemented with anti-cheating
+validation, model comparison, and manual inspection because weak specifications could
+admit unintended solutions. The accompanying
+[benchmark repository](https://github.com/Beneficial-AI-Foundation/vericoding-benchmark)
+provides the executable artifact.
+
+## Unknown-outcome recovery
+
+If a restart, timeout, or interrupted tool call occurs during a mutation, treat the
+result as unknown rather than failed. First inspect authoritative state through a
+read-only path; retry only when that check proves the intended effect is absent. This
+prevents both duplicate effects and false completion claims.
+
+Keep diagnostic and product paths distinct. A failure in a shell probe, proxy, or
+credential-resolution path does not prove the user-facing capability is broken. The
+cheapest discriminating check exercises the real product path. For layered
+integrations, verify installation, process health, user-visible availability, and
+functional behavior as separate completion criteria.
+
 ## Correlation ID
 
 Carry one non-secret identifier across channel, agent, tool, and audit events so a
