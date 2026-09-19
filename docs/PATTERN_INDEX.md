@@ -91,6 +91,28 @@ cheapest discriminating check exercises the real product path. For layered
 integrations, verify installation, process health, user-visible availability, and
 functional behavior as separate completion criteria.
 
+## Resolved execution surface
+
+For restricted or scheduled agent runs, distinguish four layers that are easy to
+collapse into one claim:
+
+1. the tool name described in a prompt or runbook;
+2. the tools permitted by policy;
+3. the concrete tool names exposed by the resolved runtime; and
+4. the external effect produced by a submitted call.
+
+A permitted capability can still appear under a runtime-specific name, and a job can
+finish successfully after merely reporting that it could not perform its intended
+work. Diagnose the resolved runtime and its concrete tool surface before changing
+credentials or repository settings. Then verify tool availability, workflow run
+status, command exit status, and authoritative external state separately.
+
+Durable sessions may also retain runtime or model overrides after global defaults
+change. Inspect the session's resolved configuration when a job fails before model
+inference or behaves differently from an equivalent fresh session. Recovery is
+complete only when the intended product path succeeds and its external effect is
+independently observed.
+
 ## Correlation ID
 
 Carry one non-secret identifier across channel, agent, tool, and audit events so a

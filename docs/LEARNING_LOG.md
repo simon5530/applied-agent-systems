@@ -1,5 +1,17 @@
 # Learning log
 
+## 2026-09-19 — Verify the resolved execution surface
+
+- Prompt terminology, policy allowlists, resolved runtime tools, and external effects
+  are separate layers; matching one does not prove the others.
+- A scheduled run can report success even when it only delivered a failure message.
+  Check tool availability, workflow status, command exit status, and authoritative
+  external state independently.
+- Durable sessions can retain runtime or model overrides after defaults change. When
+  failure occurs before inference, inspect resolved session configuration before
+  troubleshooting credentials or downstream systems.
+- See [Resolved execution surface](PATTERN_INDEX.md#resolved-execution-surface).
+
 ## 2026-09-18 — Verify contracts and recover unknown outcomes
 
 - A model can draft an implementation, but consequential execution should depend on
