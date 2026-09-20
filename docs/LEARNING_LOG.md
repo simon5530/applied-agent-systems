@@ -1,5 +1,18 @@
 # Learning log
 
+## 2026-09-20 — Establish the data contract before the protocol
+
+- A simulator, policy engine, or agent should produce one validated domain record;
+  table, JSONL, CSV, MQTT, and database writers are replaceable edges.
+- Record requested and applied values separately when constraints can change an
+  action, otherwise the intervention disappears from the audit trail.
+- Offset-aware timestamps, explicit units, provenance, quality, and schema version
+  prevent ambiguity before data crosses a process boundary.
+- Executable invariants catch incoherent telemetry earlier than transport-level
+  success can.
+- Applied in [Mini Energy AI Lab Phase 1](https://github.com/simon5530/mini-energy-ai-lab).
+- See [Versioned data boundary before transport](PATTERN_INDEX.md#versioned-data-boundary-before-transport).
+
 ## 2026-09-19 — Verify the resolved execution surface
 
 - Prompt terminology, policy allowlists, resolved runtime tools, and external effects

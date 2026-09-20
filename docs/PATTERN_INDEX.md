@@ -118,6 +118,22 @@ independently observed.
 Carry one non-secret identifier across channel, agent, tool, and audit events so a
 workflow can be reconstructed without logging sensitive content.
 
+## Versioned data boundary before transport
+
+Define and validate the domain record before choosing MQTT, HTTP, a database, or
+another transport. Keep simulation or business logic responsible for producing a
+typed record; keep encoders and publishers responsible only for representation and
+delivery. A transport can then be replaced without changing domain calculations.
+
+Include provenance, quality, units, offset-aware time, and a schema version in the
+record. Preserve both a requested action and the constrained applied result when a
+policy or physical limit can intervene. Make invariants executable—for example,
+reject non-finite values and a broken energy balance—so downstream systems do not
+have to infer whether an apparently valid payload is coherent.
+
+This pattern does not make synthetic data real. An explicit source and quality label
+prevents test telemetry from silently acquiring production authority.
+
 ## Conversation as UI
 
 Use an existing communication channel for commands, clarification, approval, and
