@@ -52,6 +52,23 @@ safety. A runtime audit can reject a known weak tier and separately flag small p
 counts, but operational admission still requires task-specific evaluation and a live
 provider proof.
 
+## Provider admission by live receipt
+
+Treat provider catalog discovery, credential resolution, successful inference, model
+selection, and tool-policy enforcement as separate checks. A listed model proves only
+that an endpoint advertised it; it does not prove the current credential can invoke it
+or that the runtime used the requested route.
+
+Admit a route only after a real request produces a receipt that identifies the effective
+provider and model. Prove fallback with a controlled primary failure, then remove the
+probe configuration. Re-run a tool test after applying model-specific restrictions so
+the admitted model is both reachable and bounded.
+
+Use floating aliases for automatic routing when provider-managed retirement resilience
+matters, but keep fixed model identifiers for diagnosis and reproducible evaluation.
+Aliases reduce breakage while accepting that behavior, capability, and price can change;
+therefore they require periodic live revalidation.
+
 ## Failure-path testing
 
 Test unauthorized requests, stale state, provider failure, duplicate delivery, restart

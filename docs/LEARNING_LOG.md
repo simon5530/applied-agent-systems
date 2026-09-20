@@ -1,5 +1,15 @@
 # Learning log
 
+## 2026-09-20 — Admit providers with a live model receipt
+
+- Catalog visibility, credential resolution, successful inference, effective routing,
+  and post-policy tool access are distinct claims.
+- Require a real request and receipt for the effective provider and model; prove
+  fallback through a controlled primary failure and remove the probe afterward.
+- Floating aliases improve retirement resilience for automatic routes but trade away
+  fixed behavior, capability, and pricing, so revalidate them periodically.
+- See [Provider admission by live receipt](PATTERN_INDEX.md#provider-admission-by-live-receipt).
+
 ## 2026-09-20 — Establish the data contract before the protocol
 
 - A simulator, policy engine, or agent should produce one validated domain record;
