@@ -95,6 +95,21 @@ admit unintended solutions. The accompanying
 [benchmark repository](https://github.com/Beneficial-AI-Foundation/vericoding-benchmark)
 provides the executable artifact.
 
+## Lossy output compression is not an oracle
+
+CLI-output compression can reduce model context cost for noisy, reproducible,
+read-only commands. It belongs on an **intermediate observability path**, not on the
+final verification path. Preserve the native process exit code, but do not assume a
+compact textual summary is semantically faithful merely because the exit code is.
+
+Use compression only when the command can be rerun cheaply. Run the native command
+for failures, exact file or diff inspection, security scans, mutations, and final
+evidence. Avoid automatic hooks around consequential commands: a rewrite layer that
+intercepts every shell call expands both the supply-chain boundary and the chance
+that a parser regression hides important output. Disable network telemetry and
+persistent full-output recovery unless their value and data-retention boundary are
+explicitly accepted.
+
 ## Unknown-outcome recovery
 
 If a restart, timeout, or interrupted tool call occurs during a mutation, treat the

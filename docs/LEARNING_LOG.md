@@ -1,5 +1,23 @@
 # Learning log
 
+## 2026-09-21 — Bound lossy CLI-output compression
+
+- Evaluated RTK 0.49.0 against real repository commands before adoption.
+- It reduced `git status` output by 43% and successful `pytest -vv` output by 98%; a
+  failing test kept the assertion and exit code while reducing output by 85%.
+- The same release incorrectly summarized a successful `pytest -q` run as “No tests
+  collected,” and produced no reduction for the tested `git log --stat` command.
+- Adopted the Homebrew binary only for explicit, noisy, read-only intermediate
+  commands. Native commands remain the final oracle; mutation, security, exact-read,
+  failure-diagnosis, and final-verification paths bypass compression.
+- Did not install the automatic OpenClaw plugin because its published 1.0.0 package
+  has [CVE-2026-55249](https://github.com/rtk-ai/rtk/security/advisories/GHSA-fqgj-m2gp-mr3q)
+  and the hook does not cover every active execution surface.
+- Telemetry and recall storage are disabled. Because 0.49.0 persisted tracking data
+  despite `tracking.enabled=false`, the local tracking database is routed to SQLite
+  `:memory:` and verified absent after execution.
+- See [Lossy output compression is not an oracle](PATTERN_INDEX.md#lossy-output-compression-is-not-an-oracle).
+
 ## 2026-09-20 — Admit providers with a live model receipt
 
 - Catalog visibility, credential resolution, successful inference, effective routing,
