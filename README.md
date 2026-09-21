@@ -49,10 +49,13 @@ hub creates one durable map without turning every project README into a textbook
 - [Agent skill design and adoption](docs/AGENT_SKILLS.md)
 - [Learning log](docs/LEARNING_LOG.md)
 - [Learning capture workflow](docs/LEARNING_CAPTURE.md)
+- [Publication security gate](docs/PUBLICATION_SECURITY_GATE.md)
+- [Latest publication audit](docs/PUBLICATION_AUDIT.md)
 - [Decisions](docs/DECISIONS.md)
 - [Labs](labs/README.md)
 - [Project applications](projects/README.md)
 - [Learning-note template](templates/LEARNING_NOTE.md)
+- [Publication-audit template](templates/PUBLICATION_AUDIT.md)
 - [Security rules](SECURITY.md)
 
 ## Publication direction
