@@ -25,6 +25,23 @@ and expired.
 A time-to-live gives temporary state an automatic expiry. It is essential for soft
 holds, cached authority, and short-lived credentials.
 
+## Ownership-aware artifact reclamation
+
+Treat artifact age as a candidate filter, not proof that deletion is safe. A runtime
+can retain generation references or lazily reopen files without keeping an open file
+handle. Neither an old timestamp nor an empty open-handle check proves non-use.
+
+Before cleanup, identify the lifecycle owner and check its authoritative references
+and retention contract. Prevent new references while reclaiming eligible artifacts;
+a read-only snapshot alone leaves a check-to-delete race. If ownership or references
+remain unresolved, retain the artifacts. Use an explicitly authorized maintenance
+window to quiesce the owning lifecycle and re-check when live reclamation cannot be
+proven safe; do not infer shutdown authority from cleanup permission.
+
+A cleanup report should distinguish candidates, proven reclaimable artifacts, and
+actual removals. Verify the resulting inventory and runtime health independently.
+Zero removals is a valid outcome when nothing satisfies the safety contract.
+
 ## Optimistic concurrency
 
 Re-check state immediately before committing. If the version or availability changed,
