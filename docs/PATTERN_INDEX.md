@@ -195,6 +195,34 @@ Extraction identifies a possible action, not authority to execute it. Convert na
 language into a candidate, validate missing facts and conflicts, then apply explicit
 policy before creating an external commitment.
 
+## Evaluate interpretation separately from authority
+
+A reply classifier can identify the right option while assigning the wrong intent.
+Define labels against downstream state transitions before tuning prompts: selecting
+an existing candidate is not proposing a new one, and a proposed revision is not
+explicit approval. Evaluate intent, selected candidate, and their joint correctness;
+a valid output schema does not establish semantic correctness or permission to act.
+
+Use synthetic contrast cases: rejecting one option while accepting another, proposing
+a replacement, conditional agreement, quoted approval, and ambiguous references.
+Have expected labels reviewed independently against the state-machine contract. When
+an error leads to a prompt change, keep the original cases as regression tests and
+use fresh held-out cases for the next evaluation. Small, hand-authored samples are
+exploratory evidence, not deployment or confidence-calibration proof.
+
+Report false approvals separately from overall accuracy; observing none in a small
+sample does not establish a safe error rate. A keyword baseline is not a comparison
+with the incumbent model. Compare the same held-out inputs, record the effective
+model version, and distinguish batch latency, token counts, and verified monetary
+cost before claiming a quality or savings improvement.
+
+Start in shadow mode with no mutation authority. Feed interpretations through existing
+authentication, explicit-approval, expiry, and state-version checks; abstain or request
+clarification when the interpretation is ambiguous or invalid. Recovery is proven by
+passing regression and fresh-case checks plus an integration test showing that a
+revision or uncertain reply cannot create a confirmed commitment. Classification
+quality alone must never bypass that gate.
+
 ## Candidate is not tentative availability
 
 Use precise authority labels. A **candidate** is generated from constraints and policy
