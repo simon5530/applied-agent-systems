@@ -53,6 +53,27 @@ Allow low-risk queries and reversible drafts to run automatically. Require a pre
 and explicit approval for external, destructive, financial, or socially consequential
 actions.
 
+## Corrections as versioned scope updates
+
+A narrow removal request can be misread as a broad confidentiality restriction.
+The failure is not merely incorrect wording: the inferred restriction can change
+repository visibility, retained artifacts, and future work. Check the latest explicit
+instruction against an object-level contract before acting: what must change, what
+must remain, and which exposure or history changes are actually authorized.
+
+Treat a correction as a new task version, not an additional contradictory rule.
+Mark the mistaken interpretation superseded in durable context, update affected
+acceptance checks and planning artifacts within authorized scope, and continue the
+corrected task. A stale backlog item must not silently restore removed work. Do not
+infer permission to change visibility or rewrite history from permission to delete
+a file; deleting the current file also does not erase earlier published versions.
+
+Prove recovery against authoritative state: the requested objects are absent, retained
+objects are unchanged, the remote revision matches, and visibility matches the explicit
+contract when it is in scope. Regression cases should distinguish ordinary scaffold
+removal from confidentiality remediation and verify that a superseded interpretation
+cannot remain an active restriction or authorize unrelated changes.
+
 ## Fallback with quality floor
 
 Fallback improves availability only when every candidate still satisfies context,
