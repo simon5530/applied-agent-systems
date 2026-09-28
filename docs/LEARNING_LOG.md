@@ -1,5 +1,15 @@
 # Learning log
 
+## 2026-09-28 — Match evaluation claims to evidence completeness
+
+- Reported totals and valid metadata cannot substitute for missing upstream evidence.
+  Count unsupported checks as not assessable, not successful assurance.
+- Separate a complete fictional worked example with known answers from a real-world
+  ingestion evaluation; neither track establishes the other’s claims.
+- Prove bounded implementation behavior from the distributed artifact with clean-run
+  reproduction, deterministic outputs, and expected negative controls.
+- See [Evidence completeness before evaluation realism](PATTERN_INDEX.md#evidence-completeness-before-evaluation-realism).
+
 ## 2026-09-21 — Bound lossy CLI-output compression
 
 - Evaluated RTK 0.49.0 against real repository commands before adoption.

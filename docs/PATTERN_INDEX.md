@@ -299,3 +299,29 @@ A workflow describes how work normally proceeds. A sandbox limits the computatio
 an agent can perform. A gateway mediates traffic. A policy engine decides whether an
 action is allowed. An action zone composes these controls so the invariant still
 holds when the agent changes its plan, framework, model, or internal delegation.
+
+## Evidence completeness before evaluation realism
+
+A realistic public dataset can contain reported totals while omitting the upstream
+inputs needed to test reconciliation, causality, or assurance. A passing schema or
+metadata check must not be counted as evidence for those stronger claims. First map
+each evaluation claim to its required inputs and an independent expected result;
+mark missing evidence as not assessable rather than silently passing it or inventing
+supporting records.
+
+Use two distinct evaluation tracks when appropriate. A fully specified fictional
+worked example tests calculations, provenance, packaging, and failure behavior against
+known answers. Real-world disclosures test ingestion and the limits of available
+evidence, not reconstruction of an unavailable inventory. Synthetic completeness
+proves bounded implementation behavior, not field validity or professional assurance.
+If the intended claim needs missing evidence that cannot be obtained, narrow the
+claim or remove that evaluation track through an explicit scope decision.
+
+A cheap discriminating check is an evidence-coverage matrix: claim, required source,
+available source, oracle, and assessability. Verify recovery with an end-to-end run
+from the distributed artifact in a clean environment, deterministic output comparison,
+and negative controls that fail for the intended reason. Keep the matrix and actual
+run evidence in the project repository; publish only the transferable method here.
+
+Review question: which conclusions would remain justified if every reported total
+were correct but no underlying activity record or factor were available?
