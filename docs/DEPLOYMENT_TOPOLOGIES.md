@@ -41,6 +41,28 @@ session state, and tool dispatch. Before considering active-active replicas, est
 Without those controls, two gateways may both process the same event or build
 different versions of the same session.
 
+## Health claims need path-specific evidence
+
+A successful provider API probe proves outbound access, not inbound webhook delivery.
+After maintenance, verify each boundary independently before declaring the channel
+healthy:
+
+1. Check the ingress supervisor and its live process, not just installed configuration.
+2. Inspect the live public-to-upstream mapping, including the upstream HTTP/TLS scheme.
+3. Request the public health route to test reachability through ingress.
+4. Send an unsigned synthetic webhook request and assert the application's documented
+   missing-signature rejection. A generic proxy error is not equivalent evidence.
+5. Use a fresh authorized event and observe its reply to establish end-to-end delivery.
+
+Report partial evidence explicitly: health-route success and signature rejection do
+not prove valid-event processing or reply delivery. Keep request-body inspection off
+unless a scoped diagnostic need justifies capturing potentially private messages.
+
+Supervise ingress independently when it must survive gateway maintenance. Test
+process recovery separately from reboot persistence, login requirements, and host
+sleep behavior; passing one does not establish the others. Repair the failing layer
+rather than restarting unrelated services as a diagnostic shortcut.
+
 ## Migration is a testable workflow
 
 A portable system needs both declarative and stateful assets:

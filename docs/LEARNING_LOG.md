@@ -1,5 +1,13 @@
 # Learning log
 
+## 2026-10-04 — Verify channel health at each boundary
+
+- Outbound API success does not establish inbound webhook reachability. Check live
+  ingress mapping, application-level signature rejection, and a fresh round trip
+  as distinct evidence.
+- Separate process recovery from reboot, login, and sleep availability claims.
+- See [Path-specific health evidence](DEPLOYMENT_TOPOLOGIES.md#health-claims-need-path-specific-evidence).
+
 ## 2026-09-28 — Match evaluation claims to evidence completeness
 
 - Reported totals and valid metadata cannot substitute for missing upstream evidence.
