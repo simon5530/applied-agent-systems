@@ -42,6 +42,31 @@ A cleanup report should distinguish candidates, proven reclaimable artifacts, an
 actual removals. Verify the resulting inventory and runtime health independently.
 Zero removals is a valid outcome when nothing satisfies the safety contract.
 
+## Lease-aware maintenance handoff
+
+A replacement can time out while its requesting agent turn still retains the very
+runtime generation that must drain. Waiting synchronously creates a dependency
+cycle: the turn waits for replacement, and replacement waits for the turn to end.
+Launching a child or a second process does not break that cycle if the parent keeps
+its lease. A retained-work count alone does not identify stale business requests.
+
+The cheapest discriminating check is to inspect lifecycle ownership: does the
+requesting turn retain the target generation, and what event releases it? Build and
+test first, then use an authorized maintenance executor outside that retaining turn.
+An automated handoff is valid only when lease release, bounded execution, and a
+completion receipt have been demonstrated; otherwise report that path as unproven.
+Do not force reference counters, delete runtime state, or infer restart permission.
+
+Separate installed files and saved configuration from the applied generation. Prove
+replacement with its lifecycle receipt and an authorized live capability call from
+a fresh runtime context. A capability probe does not establish an entire business
+workflow, notification delivery, or disk reclamation. For cleanup, apply the
+[ownership-aware reclamation contract](#ownership-aware-artifact-reclamation)
+separately and distinguish logical artifact size from measured reclaimed space.
+
+Review question: can the maintenance executor finish while the requesting turn is
+still alive, and which authoritative observations prove release and activation?
+
 ## Optimistic concurrency
 
 Re-check state immediately before committing. If the version or availability changed,

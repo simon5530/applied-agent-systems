@@ -1,5 +1,15 @@
 # Learning log
 
+## 2026-10-05 — Release the requester before draining its runtime
+
+- A maintenance request can retain the generation it waits to replace. Delegating
+  execution does not remove that dependency while the parent lease remains active.
+- Check lifecycle ownership before retrying; require a demonstrated release and
+  completion path rather than assuming background execution solves the problem.
+- Verify applied generation and live capability independently from installation,
+  end-to-end delivery, and artifact cleanup.
+- See [Lease-aware maintenance handoff](PATTERN_INDEX.md#lease-aware-maintenance-handoff).
+
 ## 2026-10-04 — Verify channel health at each boundary
 
 - Outbound API success does not establish inbound webhook reachability. Check live
