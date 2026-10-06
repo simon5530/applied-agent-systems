@@ -1,5 +1,15 @@
 # Learning log
 
+## 2026-10-06 — Trace diagnostic labels to effective boundaries
+
+- A generic resource error can hide a connection failure. Verify the resource first,
+  then inspect the actual route and trust mechanism before changing credentials or TLS.
+- Certificate pinning and TLS interception have different trust contracts; preserve
+  verification and policy rather than weakening either to make a probe pass.
+- A reporting guard must live in context the job actually loads. Saved text and
+  effective configuration are not evidence of subsequently observed behavior.
+- See [Diagnose the failed boundary](PATTERN_INDEX.md#diagnose-the-failed-boundary-not-the-error-label).
+
 ## 2026-10-05 — Release the requester before draining its runtime
 
 - A maintenance request can retain the generation it waits to replace. Delegating

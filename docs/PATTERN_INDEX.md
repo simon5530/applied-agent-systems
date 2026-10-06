@@ -186,6 +186,35 @@ cheapest discriminating check exercises the real product path. For layered
 integrations, verify installation, process health, user-visible availability, and
 functional behavior as separate completion criteria.
 
+## Diagnose the failed boundary, not the error label
+
+A summary error can collapse several failures into one label. A report that a
+certificate is unavailable, for example, may originate from a failed connection
+rather than a missing file. Trace the label to its underlying predicate before
+repairing the named resource.
+
+Use the cheapest discriminating checks in order:
+
+1. Verify the alleged missing resource without exposing its contents.
+2. Inspect the failing probe's effective route, trust mechanism, and credential
+   resolution; compare it with a working path without treating the paths as equivalent.
+3. Test the suspected boundary. A certificate-pinned client cannot accept an
+   interception proxy's substitute certificate merely because the proxy CA is trusted.
+4. If authorized, use a supported, narrowly scoped end-to-end route that preserves
+   the client's pin verification and required egress controls. Confirm that secret
+   substitution or other proxy-dependent functions are not required on that route.
+   Otherwise stop with a concrete incompatibility; do not disable TLS or the proxy.
+5. Rerun the original failing probe and independently verify effective configuration.
+   Record what remains untested; a repaired diagnostic is not an end-to-end workflow.
+
+Reporting mitigations need the same effective-state discipline. Editing a workspace
+instruction does nothing for a lightweight job that never loads it. Inspect the
+job's actual context source, change only the authorized loaded instruction, then
+separate configuration readback from observed behavior on a subsequent run.
+
+**Review question:** Which single check distinguishes an absent resource from a
+failed access path, and which evidence proves the intended job consumed the repair?
+
 ## Resolved execution surface
 
 For restricted or scheduled agent runs, distinguish four layers that are easy to
