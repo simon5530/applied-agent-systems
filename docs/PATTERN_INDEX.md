@@ -379,3 +379,36 @@ run evidence in the project repository; publish only the transferable method her
 
 Review question: which conclusions would remain justified if every reported total
 were correct but no underlying activity record or factor were available?
+
+## Task boundaries before routing economics
+
+Session usage is not task cost: one session can contain several deliverables,
+corrections, maintenance turns, and delegated runs. An apparently cheap worker may
+have done only maintenance, and missing price data does not mean free inference.
+Before changing routing, distinguish task identity, actual execution, usage, and
+verified outcome.
+
+Prefer existing native usage records plus a minimal private task-boundary index over
+another telemetry service or transcript copy. Reuse one task key for corrections to
+the same deliverable; reference actual child-run receipts, distinguish maintenance
+from requested work, and record verification, rework, or blockers. Keep raw request
+identifiers and runtime evidence private; publish only the transferable method.
+
+Instruction-driven annotations are best-effort, not a guaranteed runtime hook. The
+cheapest discriminating check is to reconcile indexed tasks against authorized native
+records for the same time window, checking refresh state, visibility limits, and time
+zone boundaries. Disclose missing coverage; do not infer zero delegation from an
+agent-scoped view or assign session totals to individual tasks without a valid join.
+Keep unattributable usage explicitly unknown and distinguish subscription allowance
+from estimated API expenditure.
+
+Recovery means correcting supported joins and narrowing unsupported claims, not
+inventing measurements. Verify the review with deterministic checks that follow-ups
+share a task key, referenced child runs exist, maintenance is excluded from delegation
+counts, and unattributed usage remains visible without double-counting parent/child
+records. Observed route, latency, usage, and outcome support a baseline; savings under
+a different route remain a hypothesis until tested on comparable work. The index
+itself is not proof of savings or permission to change routing.
+
+Review question: what routing conclusion survives if usage totals are complete but
+task-boundary annotations and monetary prices are only partially available?
