@@ -1,5 +1,22 @@
 # Learning log
 
+## 2026-10-15 — Separate execution, findings and delivery
+
+- An audit can execute successfully, discover incomplete validation, and deliver
+  a report. Those are three different outcomes; a failure alert must name its axis.
+- A scheduler may honor an explicit failure marker in the assistant's first line
+  even when inference and delivery succeeded. Trace the marker and classifier before
+  blaming the model or suppressing real alerts.
+- Time-box optional research, checkpoint completed phases, and resume missing work
+  across retries. Reconcile cumulative probes and unknown costs instead of reporting
+  only the last attempt as the entire task.
+- Mark blocked coverage explicitly without certifying health. Verify status parsing
+  with independent positive/negative examples and read back the actual job contract;
+  a future complete scheduled run remains separate acceptance evidence.
+- Device pairing, online availability and operating-system permissions are separate
+  gates too; a remembered grant or stale snapshot does not prove current GPS access.
+- See [Model and workflow portability](MODEL_PORTABILITY.md).
+
 ## 2026-10-14 — Bound installation scope and integration claims
 
 - A task-scoped package install can silently perform unrelated maintenance. Disable
