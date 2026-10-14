@@ -67,6 +67,44 @@ separately and distinguish logical artifact size from measured reclaimed space.
 Review question: can the maintenance executor finish while the requesting turn is
 still alive, and which authoritative observations prove release and activation?
 
+## Task-scoped installation without implicit maintenance
+
+A narrow package install can trigger package-manager updates and cleanup of unrelated
+versions or caches. Installation success does not establish that the mutation stayed
+within the requested scope. Inspect default maintenance behavior before running it.
+For a scoped Homebrew install, set `HOMEBREW_NO_AUTO_UPDATE=1` and
+`HOMEBREW_NO_INSTALL_CLEANUP=1` on that command; broader maintenance needs its own scope.
+
+Verify the installed version and required command separately from unintended update
+or cleanup output. If unrelated deletion has already occurred, record what was lost
+and whether recovery is possible; do not describe permanent deletion as recoverable
+cleanup or reinstall unrelated packages without a demonstrated need. These controls
+prevent implicit maintenance, not dependency changes required by the requested install.
+
+Review question: which effects belong to the requested installation, and which come
+from package-manager defaults rather than the requested dependency graph?
+
+## Authorization is local to the execution context
+
+A connector exposed in an interactive runtime is not automatically available to a
+scheduled runtime or a native CLI. A successful identity probe proves authentication
+for that path, not resource visibility, event reads, writes, or fallback execution.
+Likewise, an aggregated application view does not prove that one OAuth identity can
+access every account shown there.
+
+Use the cheapest discriminating check: enumerate authorized resources through the
+actual execution path, then perform a bounded read of the intended resource. Prove
+writes separately and only within their authorized scope. If a second integration
+has no supported token consumer or grant, report it as unconnected rather than copying
+credentials from a working route. Preserve that route while preparing the new one.
+
+A model change within the same runtime does not itself revoke an existing OAuth grant,
+but a fallback that crosses runtime or account boundaries requires independent proof
+of tool exposure, credential consumption, resource access, and bounded behavior.
+
+Review question: does the evidence come from the path that will execute the job, and
+what is authenticated but still untested?
+
 ## Optimistic concurrency
 
 Re-check state immediately before committing. If the version or availability changed,

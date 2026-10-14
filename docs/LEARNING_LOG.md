@@ -1,5 +1,16 @@
 # Learning log
 
+## 2026-10-14 — Bound installation scope and integration claims
+
+- A task-scoped package install can silently perform unrelated maintenance. Disable
+  implicit update and cleanup for that invocation, then check both intended capability
+  and unintended effects; deleted caches are not automatically recoverable.
+- Connector authentication and resource access are path-specific. An interactive
+  connector, native CLI, and scheduled fallback require separate evidence; aggregate
+  application views do not confer cross-account OAuth access.
+- See [Task-scoped installation](PATTERN_INDEX.md#task-scoped-installation-without-implicit-maintenance)
+  and [Execution-context authorization](PATTERN_INDEX.md#authorization-is-local-to-the-execution-context).
+
 ## 2026-10-06 — Trace diagnostic labels to effective boundaries
 
 - A generic resource error can hide a connection failure. Verify the resource first,
