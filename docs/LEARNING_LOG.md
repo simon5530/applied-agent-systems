@@ -1,5 +1,16 @@
 # Learning log
 
+## 2026-10-15 — Match probes to admission and lifecycle boundaries
+
+- Manual override denial before inference does not establish automatic fallback
+  failure; retain the actual rejection phase and test recovery on its own path.
+- A hot-reloaded configuration can retire the requesting turn's consumer. Readback
+  plus a fresh-turn capability receipt separates configuration from live behavior.
+- A device's changed capability declaration may require renewed pairing approval.
+  Check the exact request rather than treating connectivity or old permissions as
+  sufficient; foreground success does not establish background reliability.
+- See [Probe the same admission path](PATTERN_INDEX.md#probe-the-same-admission-path).
+
 ## 2026-10-15 — Separate execution, findings and delivery
 
 - An audit can execute successfully, discover incomplete validation, and deliver

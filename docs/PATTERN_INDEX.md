@@ -170,6 +170,32 @@ matters, but keep fixed model identifiers for diagnosis and reproducible evaluat
 Aliases reduce breakage while accepting that behavior, capability, and price can change;
 therefore they require periodic live revalidation.
 
+## Probe the same admission path
+
+A manual model override can be rejected by an agent allowlist before provider
+inference, while automatic fallback selection follows a different admission path.
+That rejection proves the manual route was denied, not that the provider is retired
+or the automatic recovery chain is broken. Inspect the rejection phase and effective
+policy before changing credentials or widening access. Keep the denied probe as
+bounded evidence; prove automatic fallback separately through a controlled primary
+failure and a receipt identifying the selected route.
+
+A configuration hot reload can also retire the current turn's tool consumer. Read
+back the intended configuration and retry the authorized capability from a fresh
+turn before diagnosing provider failure. Saved configuration is not live inference
+proof, and a retired consumer is not evidence that credentials need resetting.
+
+For native devices, transport connectivity, pairing approval, declared capabilities
+and OS authorization are separate gates. A changed permission declaration can need
+new pairing approval even after reconnecting. Match the exact pending request to the
+known device, review its scope, and use the supported approval path only within the
+authorized task. A stale permission snapshot is not a live OS-permission reading.
+Prove the requested capability with a bounded fresh call; foreground success does
+not establish background availability, another model's access or write permission.
+
+Review question: did the probe reach the boundary being diagnosed, or did an earlier
+policy, lifecycle or connection gate stop it?
+
 ## Failure-path testing
 
 Test unauthorized requests, stale state, provider failure, duplicate delivery, restart
