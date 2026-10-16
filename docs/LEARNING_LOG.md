@@ -1,5 +1,15 @@
 # Learning log
 
+## 2026-10-16 — Migrate example consumers, not only landing links
+
+- A primary-example change must update and execute the main commands and regenerate
+  downstream guides, figures and reported results, not merely replace source links.
+- Couple replay checks to the real public interface, expected negative controls and
+  evidence limits; verify rendered and published artifacts independently.
+- Project-specific implementation and verification receipts stay in their project
+  repository; no operational records are copied here.
+- See [Primary-example consumer migration](PATTERN_INDEX.md#primary-example-changes-are-consumer-migrations).
+
 ## 2026-10-15 — Match probes to admission and lifecycle boundaries
 
 - Manual override denial before inference does not establish automatic fallback

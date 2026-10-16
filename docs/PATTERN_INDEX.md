@@ -444,6 +444,36 @@ run evidence in the project repository; publish only the transferable method her
 Review question: which conclusions would remain justified if every reported total
 were correct but no underlying activity record or factor were available?
 
+## Primary-example changes are consumer migrations
+
+Changing a project's headline example is not complete when its landing links and
+source data change. Executable quickstarts, tutorials, generated guides, papers,
+figures and verification ledgers are downstream consumers; each can still teach or
+measure the previous example while the landing page appears current.
+
+The cheapest discriminating check is to run the main documented command against the
+new example and compare its inputs and outputs with the distributed guide and
+reported results. Inventory consumers by claim, source, executable entry point and
+generated artifact. Update that dependency chain together rather than replacing
+names globally: an example change can also change supported operations, evidence
+coverage and expected failure behavior.
+
+Bind the primary documented workflow to a repeatable replay through the real public
+CLI or API, including expected negative controls. Assert semantic outcomes and
+provenance, not just command success or matching labels. Regenerate dependent
+artifacts; inspect rendered pages for stale figures, inconsistent numbers and
+layout failures. Link checks alone cannot detect a valid link to obsolete guidance.
+
+Completion requires the updated workflow to run from the distributed package in a
+clean environment, expected failures to fail for the intended reason, and published
+consumer bytes to match reviewed artifacts. Keep concrete commands, datasets,
+measurements and replay receipts in the project repository. The generic consumer
+migration contract belongs here; it does not establish that any particular project's
+release passed those checks.
+
+Review question: could a reader following the main command or downloaded guide
+still reproduce the previous example after the landing page has been updated?
+
 ## Task boundaries before routing economics
 
 Session usage is not task cost: one session can contain several deliverables,
