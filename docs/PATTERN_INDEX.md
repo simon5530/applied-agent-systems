@@ -418,6 +418,30 @@ an agent can perform. A gateway mediates traffic. A policy engine decides whethe
 action is allowed. An action zone composes these controls so the invariant still
 holds when the agent changes its plan, framework, model, or internal delegation.
 
+## Local execution is not a data-residency guarantee
+
+A tool running locally can return source code, documents, or derived findings to a
+remote inference provider. Process location and information destination are separate
+properties; local parsing does not establish that the resulting context stays local.
+
+Before adopting a tool, map input → tool process → returned output → model context →
+retained artifacts. At each edge, identify the data classification, permitted
+recipient, and enforcing control. Prefer minimal derived output over raw content;
+check that error messages and logs do not bypass that reduction. If remote disclosure
+is not authorized, keep the relevant inference local or block that output path.
+
+Likewise, a sandbox only constrains operations actually routed through it. Inventory
+host-side plugins, device connectors, and alternate execution paths separately; do
+not extend filesystem, network, or credential-isolation claims to those paths without
+independent evidence. A policy proof covers its encoded model and assumptions, not
+all agent behavior or every tool integration.
+
+A bounded adoption check uses synthetic sensitive markers: inspect the exact tool
+response and model-bound payload, then attempt a denied file or network action
+through each claimed enforcement path. Keep tests non-destructive and separately
+report observed controls, untested routes, and proof scope. Static source review is
+useful design evidence, not a live integration or data-residency receipt.
+
 ## Evidence completeness before evaluation realism
 
 A realistic public dataset can contain reported totals while omitting the upstream

@@ -1,5 +1,15 @@
 # Learning log
 
+## 2026-10-19 — Separate execution location from information flow
+
+- Local tool processing can still expose returned content to remote inference;
+  trace the tool response, model-bound payload, and retained artifacts separately.
+- Sandbox enforcement applies only to routed operations. Host-side connectors and
+  alternate execution paths need their own boundary evidence.
+- Evaluate adoption with synthetic markers and non-destructive denial checks;
+  distinguish static review and modeled policy proofs from live integration results.
+- See [Local execution and data residency](PATTERN_INDEX.md#local-execution-is-not-a-data-residency-guarantee).
+
 ## 2026-10-16 — Migrate example consumers, not only landing links
 
 - A primary-example change must update and execute the main commands and regenerate
