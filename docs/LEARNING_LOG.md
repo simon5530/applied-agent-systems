@@ -1,5 +1,15 @@
 # Learning log
 
+## 2026-10-21 — Define count units before deduplication
+
+- Separate events, role occurrences, source IDs, queries and verified entities;
+  query completion does not establish ownership or complete company coverage.
+- Preserve unresolved missing-key occurrences and a reversible provenance bridge
+  rather than merging identities by name or losing relationships during deduplication.
+- Verify uniqueness at each declared grain and reconstruct all source occurrences
+  with an independent oracle; keep concrete data and receipts in project repositories.
+- See [Count contracts](PATTERN_INDEX.md#count-contracts-before-entity-claims).
+
 ## 2026-10-19 — Separate execution location from information flow
 
 - Local tool processing can still expose returned content to remote inference;

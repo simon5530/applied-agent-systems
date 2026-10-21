@@ -530,3 +530,29 @@ itself is not proof of savings or permission to change routing.
 
 Review question: what routing conclusion survives if usage totals are complete but
 task-boundary annotations and monetary prices are only partially available?
+
+## Count contracts before entity claims
+
+A count of events, role occurrences, source identifiers, query strings or resolved
+legal entities describes a different unit. Deduplicating one unit does not resolve
+another: an exact-name query is a retrieval candidate, not verified ownership, and
+a completed query is not proof of complete entity coverage. Missing identifiers
+are unresolved occurrences, not automatically distinct entities; grouping their
+names for review must not silently merge their identities.
+
+The cheapest discriminating check is a count ledger: name each unit, its distinct
+key, eligible population, unresolved cases and provenance back to source rows.
+Keep unique nonempty identifiers separate from missing-key placeholders. Preserve
+a many-to-many bridge from deduplicated retrieval work to every original event
+and role so reducing requests cannot discard analytical relationships. Report
+query completion, source-ID coverage and verified entity coverage separately;
+no query match is not evidence of zero activity for an unresolved entity.
+
+Recover by correcting labels and joins, not by inventing identities. An independent
+oracle should reconstruct every source occurrence from the bridge, assert key
+uniqueness at the declared grain, reconcile eligible and held populations, and
+exercise duplicate names, multiple aliases, shared names and missing keys. Keep
+project-specific counts and evidence in the project repository.
+
+Review question: if every query finished, which population would still lack proven
+identity or coverage, and could the original event-role rows still be reconstructed?
