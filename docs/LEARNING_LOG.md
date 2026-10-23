@@ -1,5 +1,14 @@
 # Learning log
 
+## 2026-10-23 — Preserve typed boundaries in generated artifacts
+
+- Distinguish numeric zero from missing input with explicit predicates and literal
+  contrast-case oracles applied to the saved artifact.
+- Treat generation, preview, native execution and save/reopen as separate evidence;
+  a blocked window probe establishes neither feature absence nor native success.
+- Concrete fixtures and execution receipts stay with the originating project.
+- See [Typed boundary oracles](PATTERN_INDEX.md#typed-boundary-oracles-for-generated-artifacts).
+
 ## 2026-10-21 — Define count units before deduplication
 
 - Separate events, role occurrences, source IDs, queries and verified entities;

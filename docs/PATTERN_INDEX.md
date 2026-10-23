@@ -222,6 +222,28 @@ admit unintended solutions. The accompanying
 [benchmark repository](https://github.com/Beneficial-AI-Foundation/vericoding-benchmark)
 provides the executable artifact.
 
+## Typed boundary oracles for generated artifacts
+
+A generated spreadsheet can look correct while its calculation engine treats numeric
+zero like an empty cell. String comparison or truthiness can erase a domain distinction
+before arithmetic begins. Define missingness and valid numeric values separately;
+use explicit type checks rather than treating every falsy value as absent.
+
+The cheapest discriminating check is a small contrast fixture: numeric zero, a blank,
+a positive value, and invalid text, each with independently specified literal expected
+results. Compare the saved artifact against those literals, not a second copy of the
+same formula. Preserve these cases as regressions when repairing the predicate; do
+not change expected results merely to match the engine.
+
+Separate generation, rendering, recalculation, native execution, and save/reopen
+behavior as evidence boundaries. A preview or alternate calculation engine does not
+prove native macros, buttons, or pivots work. A missing application window blocks that
+probe; it does not prove the application lacks the feature. Retain the portable source
+and report the unverified boundary until the intended host can execute it.
+
+Review question: could zero and missing input collapse to the same result, and which
+checks ran on the delivered artifact versus only on its generator or preview?
+
 ## Lossy output compression is not an oracle
 
 CLI-output compression can reduce model context cost for noisy, reproducible,
