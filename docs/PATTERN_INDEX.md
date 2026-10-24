@@ -555,6 +555,13 @@ task-boundary annotations and monetary prices are only partially available?
 
 ## Count contracts before entity claims
 
+For measurements, the count contract also includes test conditions and the unit
+being judged. An aggregate within a limit does not establish that every member
+passed, and repeated observations of one unit do not increase the distinct-unit
+population. Keep individual decisions, group summaries and sampling coverage
+separate. Test the counterexample where one member fails while the mean passes;
+reject or explicitly partition incompatible conditions before aggregation.
+
 A count of events, role occurrences, source identifiers, query strings or resolved
 legal entities describes a different unit. Deduplicating one unit does not resolve
 another: an exact-name query is a retrieval candidate, not verified ownership, and

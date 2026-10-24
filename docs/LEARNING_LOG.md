@@ -1,5 +1,17 @@
 # Learning log
 
+## 2026-10-25 — Preserve conditions and inspect saved chart objects
+
+- Counts and joins need declared grains; measurements also need comparable fixed
+  conditions. A group mean within a limit can still hide individual failures.
+- A series stroke does not prove the saved chart uses a connected numeric-axis
+  style. Check chart type, numeric references, point caches and a reimported render.
+- Verify identifier text independently from numeric-looking previews, and decode
+  local URL fragments before comparing them with generated heading IDs.
+- Keep concrete fixtures, patches and native-execution blockers in the originating
+  project; see [Typed boundary oracles](PATTERN_INDEX.md#typed-boundary-oracles-for-generated-artifacts)
+  and [Count contracts](PATTERN_INDEX.md#count-contracts-before-entity-claims).
+
 ## 2026-10-23 — Preserve typed boundaries in generated artifacts
 
 - Distinguish numeric zero from missing input with explicit predicates and literal
