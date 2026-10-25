@@ -1,5 +1,19 @@
 # Learning log
 
+## 2026-10-25 — Monitor the client ingress and its lifecycle owner
+
+- Healthy messaging adapters do not establish availability of a native client's
+  separate private HTTPS/WebSocket ingress. Verify each transport boundary.
+- Compare normalized discovery summaries with raw advertisements before treating
+  an omitted field as absent configuration.
+- A background proxy route and an application-owned foreground claim have distinct
+  shutdown, adoption and restart behavior. Resolve ownership before maintenance.
+- Run deterministic condition checks outside inference; exercise missing/conflicting
+  routes, probe failure, deduplication and recovery without disrupting live clients.
+- Verify the actual scheduled evaluation and client acceptance separately; a saved
+  checklist or successful local probe does not prove either. See
+  [Ingress lifecycle monitoring](PATTERN_INDEX.md#monitor-ingress-at-its-lifecycle-boundary).
+
 ## 2026-10-25 — Preserve conditions and inspect saved chart objects
 
 - Counts and joins need declared grains; measurements also need comparable fixed

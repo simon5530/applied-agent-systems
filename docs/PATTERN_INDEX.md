@@ -585,3 +585,32 @@ project-specific counts and evidence in the project repository.
 
 Review question: if every query finished, which population would still lack proven
 identity or coverage, and could the original event-role rows still be reconstructed?
+
+## Monitor ingress at its lifecycle boundary
+
+A native client, messaging adapter and browser may reach the same agent through
+different transports. Probe the failing client's actual DNS, TLS, proxy route and
+application-auth boundary; another adapter's healthy API is not an end-to-end oracle.
+Treat an omitted field in a normalized discovery summary as unknown until raw
+advertisement evidence resolves it.
+
+Distinguish persistent background routes from application-owned foreground claims.
+A recovered route can work now while conflicting with the application's next-start
+adoption contract. Record the lifecycle owner and resolve conflicts before a
+separately authorized restart; do not disrupt a functioning service merely to
+claim persistence verification.
+
+Use a read-only deterministic scheduler gate to skip inference on healthy checks.
+Surface probe errors as blocked coverage rather than silence. Deduplicate failure
+notifications in scheduler state, retry on a bounded cooldown, and emit recovery
+transitions. Keep mutations in the action phase: restore only a freshly rechecked,
+previously approved missing route after validating its security prerequisites;
+preserve conflicting claims and unrelated routes. An in-process scheduler cannot
+independently detect its own host downtime.
+
+Verify synthetic fault cases, exact gate logic, a real scheduled healthy evaluation
+and native client acceptance as separate artifacts. Keep real fault-repair and
+restart-persistence coverage explicitly unverified until exercised safely.
+
+Review question: which transport and lifecycle owner does this passing probe
+actually cover, and what fails if its own scheduler is unavailable?
