@@ -1,5 +1,16 @@
 # Learning log
 
+## 2026-10-27 — Runtime replacement needs dependency and consent evidence
+
+- An executable can exist yet fail to launch after a shared-library transition;
+  probe the exact handoff runtime rather than inferring readiness from its path.
+- A runtime change can require fresh protected-storage consent. Correlate the exact
+  process and access event; do not turn a timeout hypothesis into a proven cause.
+- Separate restart drain, handoff acceptance, terminal update receipt and actual
+  activation. Restore maintenance-paused work and verify one bounded business unit
+  before declaring the maintenance workflow complete.
+- See [Update lifecycle boundaries](UPDATE_LIFECYCLE_BOUNDARIES.md#runtime-transitions-present-is-not-runnable).
+
 ## 2026-10-27 — Failed operations are recovery branches
 
 - Distinguish acquisition requirements from downstream analysis prerequisites;
