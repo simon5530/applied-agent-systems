@@ -1,5 +1,15 @@
 # Engineering pattern index
 
+## Bounded task recovery
+
+Separate a failed operation from the authorized task. Classify its scope, preserve
+replay evidence and checkpoints, test bounded distinct remedies and resume verified
+work. Escalate with actual attempts/results only when a genuine external or
+integrity boundary remains. Optional source enrichment belongs in explicit quality
+flags, while downstream analysis retains its own stricter prerequisite.
+
+See [Bounded task recovery](BOUNDED_TASK_RECOVERY.md).
+
 ## Least privilege
 
 Grant only the data and actions required for one workflow. A guest-facing agent should

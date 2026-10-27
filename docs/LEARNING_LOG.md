@@ -1,5 +1,17 @@
 # Learning log
 
+## 2026-10-27 — Failed operations are recovery branches
+
+- Distinguish acquisition requirements from downstream analysis prerequisites;
+  preserve valid observations with explicit source missingness and retain the
+  stricter analysis gate.
+- Capture a precise phase, reason and replay artifact. Diagnose with bounded
+  distinct methods, record actual results, verify a correction and resume one
+  bounded unit instead of ending a task at the first unfamiliar exception.
+- Keep permission/quota waits and unresolved integrity as real boundaries. Put
+  recovery and escalation in effective scheduled instructions, not only memory.
+- See [Bounded task recovery](BOUNDED_TASK_RECOVERY.md).
+
 ## 2026-10-25 — Monitor the client ingress and its lifecycle owner
 
 - Healthy messaging adapters do not establish availability of a native client's
