@@ -624,3 +624,29 @@ restart-persistence coverage explicitly unverified until exercised safely.
 
 Review question: which transport and lifecycle owner does this passing probe
 actually cover, and what fails if its own scheduler is unavailable?
+
+## Redacted views are not source schemas
+
+A privacy-filtered diagnostic can intentionally omit a field that the original
+input contains. Absence in a projection proves only that the projection did not
+expose it; it does not prove missing credentials, an invalid account or a broken
+upstream schema. Distinguish omitted, null, empty, invalid and unavailable values.
+
+The cheapest discriminating check is to run the existing read-only validator
+against its authorized original input, returning only the decision and a bounded
+reason code. Inspect the projection's field-selection contract separately. Do not
+print protected input or disable redaction to make debugging easier.
+
+For a synthetic example, a validator may accept an input containing a required
+identity field while a safe summary exposes only quota and reset state. A missing
+identity in that summary must remain unknown, not become a new dependency blocker.
+Verify both cases: valid source with omitted display field still passes; source
+actually missing the required field still fails closed. A projection test must not
+replace the authoritative admission check or weaken its required-field contract.
+
+Recover by correcting the diagnostic claim and any derived blocker, preserving
+privacy and rerunning the unchanged validator. Separate the validator's current
+result from historical warnings and from future scheduled execution evidence.
+
+Review question: did the source lack the field, or did the evidence view deliberately
+hide it, and which safe check can distinguish those explanations?
