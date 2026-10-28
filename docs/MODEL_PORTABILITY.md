@@ -31,6 +31,35 @@ exporting a hosted connector's token is not a portable integration strategy.
 An index can be rebuilt from source, but incompatible embedding vectors cannot
 be combined merely because their files are backed up.
 
+### Instructions are portable; authority must be enforced
+
+`AGENTS.md` and `SKILL.md` specify behavior and procedures. They neither grant
+tool access nor enforce isolation. Verify instruction discovery/loading and
+relative resource paths separately from filesystem sandboxing, tool policy,
+OAuth scopes and user isolation. Preserve equal or narrower authority when
+changing models; extra privileges do not compensate for weaker tool use.
+
+## Staged task acceptance
+
+Change one axis at a time and retain the incumbent:
+
+1. Capture a representative workflow, expected outputs and an independent
+   executable oracle on the working route. Set quality/latency/intervention
+   tolerances before comparing implementations.
+2. Keep the model and authentication route where supported; verify the native
+   agent runtime, loaded instructions and actual tool execution.
+3. Keep that runtime; test an alternate inference model against the same task,
+   tool contract, permissions and oracle.
+4. Restore onto the intended host and repeat acceptance. Local-model readiness
+   also requires measured context, tool-calling, vision, quantization quality
+   and latency; memory capacity alone is not parity.
+
+Record runtime/model/service/host versions, fixture and oracle hashes, actual
+results, denial/recovery checks, residual dependencies and rollback. Unsupported
+combinations are coverage gaps, not permission to force a runtime. A synthetic
+fixture does not prove a live connector or destination works. Separate removing
+one model provider from eliminating all cloud services; neither implies the other.
+
 ## Pragmatic migration
 
 An exclusive connector can be a valid temporary way to complete today's task.
