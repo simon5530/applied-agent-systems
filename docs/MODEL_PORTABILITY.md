@@ -31,6 +31,15 @@ exporting a hosted connector's token is not a portable integration strategy.
 An index can be rebuilt from source, but incompatible embedding vectors cannot
 be combined merely because their files are backed up.
 
+Maintain a capability mapping for each required, actually used skill/task:
+procedure entry point, observed runtime/tool provider, supported native adapter,
+authentication owner and effective permissions, representative output oracle,
+native/alternate-model evidence, blockers and rollback. A copied skill file is
+not an executable replacement. Discover the native callable interface rather
+than hardcoding the hosted tool identifier into a supposedly portable procedure.
+Inference-provider login and downstream-service authorization are separate:
+one OAuth session does not grant access to another service or credential store.
+
 ### Instructions are portable; authority must be enforced
 
 `AGENTS.md` and `SKILL.md` specify behavior and procedures. They neither grant
