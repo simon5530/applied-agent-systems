@@ -311,6 +311,41 @@ separate configuration readback from observed behavior on a subsequent run.
 **Review question:** Which single check distinguishes an absent resource from a
 failed access path, and which evidence proves the intended job consumed the repair?
 
+## TLS trust is an execution-path dependency
+
+A CLI that works in one shell can fail before authentication in another runtime.
+Compare the original client's proxy route, effective CA source and TLS library;
+an environment variable naming a PEM bundle does not prove that a native system
+trust evaluator uses it. A bundle's first certificate need not be the active proxy
+CA. Identify the actual issuer and fingerprint without publishing certificate or
+account material. Do not replace OAuth credentials to repair a transport failure.
+
+Trust policy and certificate availability are separate predicates. A matching
+trust-settings rule does not prove that the evaluator can find the public CA
+certificate. Check both before interpreting an unchanged certificate error as a
+failed policy update. If a setter reports success but a wrapper postcheck fails,
+inspect effective state before repeating any mutation.
+
+A bounded repair contract binds the exact CA fingerprint, intended client and
+hosts, trust domain and unchanged unrelated rules. Obtain authority for that
+specific change; a rotated CA does not inherit approval for its predecessor.
+Preserve required egress controls, TLS verification and private-key custody.
+Prefer supported process-local CA loading over repeated persistent trust imports
+when the client supports it; treat an unimplemented alternative as a proposal.
+
+Rerun the original failing clients through the original runtime. Validate OAuth
+and API hosts separately where their routes differ. A verified, expected HTTP
+application error can prove TLS reached that host, but does not prove a successful
+business operation, file upload or granted scope. Retain a separate behavioral
+oracle for each stronger claim.
+
+Key any lifecycle readiness gate to the active CA and executable identity. One
+successful repair is not evidence of restart resilience or an installed monitor;
+require a new guarded check after either identity changes.
+
+**Review question:** Did the failure occur in transport, credential exchange or
+application authorization, and which original-path receipt distinguishes them?
+
 ## Resolved execution surface
 
 For restricted or scheduled agent runs, distinguish four layers that are easy to

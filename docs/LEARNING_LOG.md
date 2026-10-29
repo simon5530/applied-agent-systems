@@ -1,5 +1,15 @@
 # Learning log
 
+## 2026-10-29 — TLS trust belongs to the execution path
+
+- Separate proxy routing, native trust evaluation, public CA availability and
+  OAuth authorization; success in a different shell does not certify the runtime.
+- Inspect effective state after an ambiguous mutation receipt, bind repairs to
+  the approved certificate identity, and retest original clients.
+- A host-level TLS response, business operation and restart-resilience test are
+  distinct evidence levels.
+- See [TLS trust dependency](PATTERN_INDEX.md#tls-trust-is-an-execution-path-dependency).
+
 ## 2026-10-27 — Runtime replacement needs dependency and consent evidence
 
 - An executable can exist yet fail to launch after a shared-library transition;
