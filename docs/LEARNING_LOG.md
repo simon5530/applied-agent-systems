@@ -1,5 +1,16 @@
 # Learning log
 
+## 2026-10-30 — Recovery must survive control and storage boundaries
+
+- Scheduler self-control can terminate the reporting turn. Checkpoint first and
+  verify business output, run state, future triggers and delivery separately.
+- Recoverable moves can preserve content while changing file identity. Keep strict
+  source guards, verify retained bytes and bind a separate destination inventory.
+- These are generalized protocols, not claims that a synthetic lifecycle test or
+  portable cleanup implementation was executed in this repository.
+- See [Scheduler recovery](BOUNDED_TASK_RECOVERY.md#scheduler-control-can-cancel-its-own-recovery)
+  and [Recoverable moves](PATTERN_INDEX.md#recoverable-moves-require-content-and-provenance-checks).
+
 ## 2026-10-29 — TLS trust belongs to the execution path
 
 - Separate proxy routing, native trust evaluation, public CA availability and

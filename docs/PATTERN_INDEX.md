@@ -52,6 +52,31 @@ A cleanup report should distinguish candidates, proven reclaimable artifacts, an
 actual removals. Verify the resulting inventory and runtime health independently.
 Zero removals is a valid outcome when nothing satisfies the safety contract.
 
+## Recoverable moves require content and provenance checks
+
+A recoverable move may use copy-then-delete across storage boundaries. File identity
+can therefore change even when every retained byte is correct. Do not equate an
+inode mismatch with content corruption, or simply remove identity checks to make a
+failed cleanup pass.
+
+Bind the authorized source inventory before mutation: relative paths, file types,
+content hashes and metadata required by the retention contract. Guard against source
+changes between inspection and transfer. Verify destination content and tree shape
+against that inventory, then bind the destination's actual identities in a separate
+restore manifest. Explicitly specify supported file types and metadata; a byte hash
+alone does not certify permissions, links or other required attributes. Remove source
+entries only after the applicable destination checks succeed.
+
+Recover an interrupted move by reconciling the journal, source and destination before
+retrying. Exercise same-storage rename, copy-delete, partial transfer, duplicate retry,
+source change and destination corruption with synthetic fixtures. Evidence retained
+for provenance or replay is not disposable merely because it resembles scratch output.
+Report logical bytes moved separately from physical space reclaimed: moving files to
+a recoverable holding area does not prove that storage was freed.
+
+Review question: can the restore contract distinguish a legitimate identity change
+from substituted content without weakening the pre-move source guard?
+
 ## Lease-aware maintenance handoff
 
 A replacement can time out while its requesting agent turn still retains the very

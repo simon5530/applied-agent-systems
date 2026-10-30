@@ -65,6 +65,29 @@ Test the controller with a recoverable defect, an access denial, quota/reset wai
 exhausted attempts and a restart. Treat a configured future diagnostic procedure
 separately from an incident already recovered in a live execution.
 
+## Scheduler control can cancel its own recovery
+
+Disabling a recurring job from its executing turn can cancel that same turn before
+it checkpoints or returns a final report. A scheduler's cancellation label does not
+by itself identify a human decision; inspect the initiating control action and its
+execution scope before inferring that the owner abandoned the task.
+
+Checkpoint accepted work, unresolved blockers and pending delivery before any
+scheduler mutation. Determine whether the control affects future triggers only or
+also the current run. Where supported and authorized, use post-run control or an
+independent executor with a durable handoff; spawning a child alone does not prove
+independence from parent cancellation. If safe control is unavailable, preserve the
+checkpoint and report the limitation rather than claiming closure.
+
+Separate business-output verification, run status, future schedule state and final
+delivery evidence. Recovery should reuse validated outputs rather than repeating
+acquisition just because the report was interrupted. Test the cancellation path
+with a disposable synthetic job, not production work; a documented prevention
+procedure remains unverified until that lifecycle is exercised.
+
+Review question: if this control call terminates the caller immediately, where can
+the next executor recover both the accepted output and the undelivered result?
+
 ## Verification invariants
 
 - Accepted raw source bytes are retained unchanged.
