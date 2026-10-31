@@ -1,5 +1,15 @@
 # Learning log
 
+## 2026-10-31 — Artifact defaults and effective rollback
+
+- Inspect embedded runtime and compatibility defaults before concluding that a
+  maintained client requires a source fork; test supported process-local options.
+- Distinguish synthetic exchange coverage, live protected operations and actual
+  refresh, fresh-session, restart and rotation evidence.
+- Reversible deployment includes wrappers, aliases and command-resolution order,
+  not only backup bytes. Verify the caller's effective route after rollback.
+- See [Built-artifact inspection](PATTERN_INDEX.md#inspect-the-built-artifact-before-replacing-the-implementation).
+
 ## 2026-10-30 — Recovery must survive control and storage boundaries
 
 - Scheduler self-control can terminate the reporting turn. Checkpoint first and

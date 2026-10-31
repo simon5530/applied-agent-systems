@@ -371,6 +371,33 @@ require a new guarded check after either identity changes.
 **Review question:** Did the failure occur in transport, credential exchange or
 application authorization, and which original-path receipt distinguishes them?
 
+### Inspect the built artifact before replacing the implementation
+
+Source inspection alone can misidentify a missing capability. Separate upstream
+source support, the runtime embedded in the installed executable, build-time
+compatibility defaults and effective per-process settings. A newer toolchain does
+not imply that every newer behavior is enabled in an older-targeted application.
+Inspect the actual artifact and test a supported process-local option before
+forking source, replacing authorization or broadening system trust. If a rebuild
+is necessary, first try unchanged, verified upstream source with a compatible
+supported toolchain; retain source identity and rollback evidence.
+
+Verify the repair with synthetic credential-exchange and API probes, independent
+trust roots, rotation and expected rejection cases, then test the real protected
+operation. A synthetic exchange does not establish that a live client refreshed
+its stored token. Configuration persistence does not establish executable
+resolution in a fresh session, after restart or after CA rotation.
+
+Rollback must reverse the effective dependency graph, not just restore a binary.
+Inventory wrappers, command aliases, search-path precedence and managed links;
+otherwise a restored executable can remain shadowed by the replacement. Guard
+mutations against unexpected source changes and verify which executable the
+original caller resolves after both deployment and rollback.
+
+**Review question:** Which behavior comes from source, embedded runtime, build
+compatibility defaults or process settings, and can a leftover routing layer
+silently defeat rollback?
+
 ## Resolved execution surface
 
 For restricted or scheduled agent runs, distinguish four layers that are easy to
