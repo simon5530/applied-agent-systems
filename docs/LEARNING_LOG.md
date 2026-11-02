@@ -1,5 +1,15 @@
 # Learning log
 
+## 2026-11-02 — Verify context loading before delegation
+
+- File presence, discovery, loading and enforced authority are separate contracts;
+  children need explicit, version-aware context checks.
+- Use bounded task packets and one canonical integrator, not transcript sharing
+  or competing durable-memory writers. Preserve provenance and supersession.
+- Loading, denied-write and stale-revision cases are proposed checks, not claims
+  of executed runtime validation or measured performance gains.
+- See [Context loading contract](AGENT_SKILLS.md#context-loading-is-an-executable-contract).
+
 ## 2026-10-31 — Artifact defaults and effective rollback
 
 - Inspect embedded runtime and compatibility defaults before concluding that a

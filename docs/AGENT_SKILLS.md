@@ -60,6 +60,51 @@ Skill files influence tool use and may contain scripts. Treat them like code:
 4. Review upstream diffs before updating.
 5. Avoid repository helper scripts that overwrite existing skill directories.
 
+## Context loading is an executable contract
+
+A file being present does not prove that a particular runtime or delegated worker
+loads it. Separate discovery metadata, automatically loaded instructions, explicit
+reads and retained session context. Check version-specific loading rules for the
+actual execution path; do not assume that a child inherits its parent's persona,
+private memory or repository instructions. Execution-directory instructions and a
+configured workspace bootstrap can have different scopes.
+
+Keep the always-loaded core small, but retain required safety and acceptance rules.
+Route optional detail through precise triggers and explicit read pointers. Prose
+restrictions do not enforce permissions: a command-execution tool may still write
+when a task packet says "read-only." Enforce that boundary in tool policy or an
+appropriate sandbox, and test the actual denied operation separately.
+
+Use a bounded delegation packet rather than a transcript:
+
+- objective, permitted inputs and their provenance or revision;
+- exact allowed effects, forbidden effects and escalation boundary;
+- output schema, independent acceptance checks and evidence locations;
+- completion destination, timeout, retry budget and unresolved-blocker format.
+
+A worker returns findings and evidence, not a new grant of authority. Assign one
+canonical integrator to reconcile versions and update shared durable conclusions;
+other workers propose changes. Keep stated facts, observations and inferences
+distinct, and explicitly supersede outdated conclusions. This coordination rule
+does not itself enforce filesystem or memory-write isolation.
+
+### Bounded validation exercise
+
+Use synthetic instruction markers and a disposable fixture, never private memory.
+Inspect actual bootstrap/read receipts for a fresh parent and child, then ask each
+to return its intended source marker. A model echo alone is not proof of loading.
+Confirm an intentionally unprovided marker remains unavailable and the enforcement
+layer rejects a forbidden write. Feed the integrator conflicting revisions and
+verify stale results cannot silently replace newer conclusions or grant authority.
+
+Record missing visibility as unverified coverage; do not broaden permissions to
+complete a probe. These are proposed checks, not an executed runtime lab. Measure
+success, rework and total resource use on comparable repeated tasks before claiming
+that fewer instructions or more workers improved performance.
+
+**Review question:** Which receipt proves the child consumed the intended rules,
+which control limits its effects, and who resolves conflicting durable conclusions?
+
 ## Selective adoption
 
 | Skill | Decision | Reason |
