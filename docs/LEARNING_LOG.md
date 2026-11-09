@@ -1,5 +1,13 @@
 # Learning log
 
+## 2026-11-09 — Route provenance and scope-correct acceptance
+
+- Distinguish configured intent, resolved state and actual turn execution.
+- Restore override/source semantics, not just equal effective values.
+- Keep future directions out of current acceptance gates; preserve dated receipts.
+- These generalized protocols do not claim executed runtime regression tests.
+- See [Route evidence](MODEL_PORTABILITY.md#route-evidence-and-exact-rollback).
+
 ## 2026-11-02 — Verify context loading before delegation
 
 - File presence, discovery, loading and enforced authority are separate contracts;

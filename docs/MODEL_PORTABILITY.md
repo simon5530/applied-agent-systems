@@ -59,7 +59,8 @@ Change one axis at a time and retain the incumbent:
    agent runtime, loaded instructions and actual tool execution.
 3. Keep that runtime; test an alternate inference model against the same task,
    tool contract, permissions and oracle.
-4. Restore onto the intended host and repeat acceptance. Local-model readiness
+4. Only if host migration is a current objective, restore and repeat acceptance.
+   Otherwise mark it not applicable, not a destination blocker. Local-model readiness
    also requires measured context, tool-calling, vision, quantization quality
    and latency; memory capacity alone is not parity.
 
@@ -68,6 +69,30 @@ results, denial/recovery checks, residual dependencies and rollback. Unsupported
 combinations are coverage gaps, not permission to force a runtime. A synthetic
 fixture does not prove a live connector or destination works. Separate removing
 one model provider from eliminating all cloud services; neither implies the other.
+
+## Route evidence and exact rollback
+
+Keep configured intent, resolved session state and observed execution separate.
+A model alias, worker label or pending-switch badge does not prove the model and
+harness that produced a result. Require a native receipt correlated to the actual
+evaluated turn; leave identity unknown when that evidence is unavailable. Parent
+tool exposure does not establish child tool exposure. Inspect the child's concrete
+surface before diagnosis; a browser substitute cannot pass a native-search oracle.
+
+Before a temporary switch, capture effective values and their source: explicit
+override, inherited default, or session binding. Clearing an override can retain
+the same value today but behave differently after a default update. Restore values
+**and override/source semantics**, then independently read them back. Verify the
+subsequent execution separately; equal effective identifiers alone are insufficient.
+
+An explicit scope correction must update canonical acceptance and current blockers
+while preserving historical receipts. A future migration direction is not a current
+acceptance gate; an old interrupted request is not fresh authorization.
+
+**Proposed checks, not executed runtime tests:** missing child tools must not become
+fabricated service failures; pending switches must not prove actual execution;
+equal values with different sources must fail exact rollback comparison; future-only
+host migration must not require a destination in current acceptance.
 
 ## Pragmatic migration
 
