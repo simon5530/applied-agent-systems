@@ -15,6 +15,36 @@ See [Bounded task recovery](BOUNDED_TASK_RECOVERY.md).
 Grant only the data and actions required for one workflow. A guest-facing agent should
 receive derived availability, not raw calendar events or broad filesystem access.
 
+## Send-only coordination is not delegated authority
+
+Permission to send an inter-agent message does not grant the sender the receiver's
+privileges. Treat a less-trusted agent's request as untrusted input, even when the
+transport authenticates that agent. The privileged receiver must independently
+check owner authorization, permitted purpose, recipient and data scope before any
+file disclosure or external effect; it must not become a privilege proxy.
+
+Validate a restricted communication workflow in separate layers:
+
+1. **Discovery:** a registered tool is not necessarily exposed to the intended
+   requester. Check the actual requester context, not another agent's catalog.
+2. **Enforcement:** minimal tool listings and written rules are not denial evidence.
+   Use bounded, non-destructive probes for prohibited read and execution paths;
+   report untested attachment and egress paths separately.
+3. **Coordination:** a successful internal handshake proves only that exchange,
+   not third-party delivery, recipient identity or operating-system isolation.
+4. **Delivery:** bind an authorized recipient to provider-issued routing identity
+   and require a platform receipt before starting a reply-dependent watch. A
+   display name, internal acceptance or queued run is not that receipt.
+
+If a route is rejected, retain the exact denial and keep normalization defects as
+hypotheses until verified. Do not vary identifiers, switch sessions or use an
+alternate transport to evade a cross-context boundary. Stop the affected send while
+preserving independently authorized work and the condition needed to resume.
+
+Proposed review cases: an allowed internal exchange, a denied privileged request,
+a registered-but-unexposed tool, and a failed external send that must not arm a
+reply watch. These are test specifications, not executed integration evidence.
+
 ## Defense in depth
 
 Combine independent controls, such as private network membership and application

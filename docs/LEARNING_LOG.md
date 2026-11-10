@@ -1,5 +1,14 @@
 # Learning log
 
+## 2026-11-10 — Communication permission is not privilege delegation
+
+- Keep message transport authorization separate from authority to disclose or act.
+- Verify requester tool exposure, denial enforcement, internal exchange and external
+  delivery independently; arm reply watches only after a verified send receipt.
+- A rejected route does not establish its root cause or authorize a bypass.
+- Generalized design and proposed checks only; no runtime certification is published.
+- See [Send-only coordination](PATTERN_INDEX.md#send-only-coordination-is-not-delegated-authority).
+
 ## 2026-11-09 — Route provenance and scope-correct acceptance
 
 - Distinguish configured intent, resolved state and actual turn execution.
