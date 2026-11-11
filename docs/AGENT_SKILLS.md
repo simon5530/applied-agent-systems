@@ -105,6 +105,33 @@ that fewer instructions or more workers improved performance.
 **Review question:** Which receipt proves the child consumed the intended rules,
 which control limits its effects, and who resolves conflicting durable conclusions?
 
+## Recover fixture permissions without weakening confinement
+
+An offline helper failure can originate in the fixture rather than the helper or
+sandbox policy. A copied read-only fixture may retain its mode and reject an
+otherwise permitted overwrite. Inspect effective identity, copied mode, intended
+output location and policy-denial evidence before changing access controls.
+
+When the test contract requires a writable copy, recreate only that disposable copy
+with the intended ownership and mode inside the existing sandbox. Preserve immutable
+sources, read-only source mounts and mandatory access controls. A writable backing
+file mode does not make a read-only mount writable; verify both independently. Never
+disable confinement merely to make the helper pass.
+
+Rerun the affected case, compare source hashes and retain previously accepted outputs.
+Record which cases were rerun rather than claiming a new full-suite execution. Keep
+offline helper behavior, interactive visual behavior, actual model provenance and
+sandbox enforcement as separate acceptance dimensions. A passing suite proves only
+its encoded scope.
+
+**Proposed exercise (not executed here):** reproduce an overwrite failure using a
+synthetic read-only fixture; repair only its disposable copy. Verify the original
+hash is unchanged and a forbidden write outside the allowed output area still fails.
+Preserve denial receipts and explicitly label untested acceptance dimensions.
+
+**Review question:** Which observation distinguishes a fixture-mode error from a
+policy denial, and which negative test proves the repair preserved confinement?
+
 ## Selective adoption
 
 | Skill | Decision | Reason |

@@ -1,5 +1,13 @@
 # Learning log
 
+## 2026-11-11 — Confinement-preserving fixture recovery
+
+- Inspect copied modes, effective identity and policy denials before weakening controls.
+- Repair only the disposable fixture; verify source hashes, forbidden-write rejection
+  and previously accepted evidence independently.
+- Offline helper success does not certify visual interaction or model provenance.
+- See [fixture recovery](AGENT_SKILLS.md#recover-fixture-permissions-without-weakening-confinement).
+
 ## 2026-11-10 — Communication permission is not privilege delegation
 
 - Keep message transport authorization separate from authority to disclose or act.
