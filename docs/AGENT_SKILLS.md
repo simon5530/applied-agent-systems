@@ -132,6 +132,42 @@ Preserve denial receipts and explicitly label untested acceptance dimensions.
 **Review question:** Which observation distinguishes a fixture-mode error from a
 policy denial, and which negative test proves the repair preserved confinement?
 
+## Publishing is a content-identity and state-transition contract
+
+A publisher can transform a local directory before upload: reserved filenames,
+ignore rules or generated metadata can change the bundle. Local review therefore
+does not establish which bytes the registry received.
+
+1. Freeze an explicit upload allowlist with relative names, sizes and content
+   hashes. Exclude private evidence and credentials.
+2. Compare that inventory with the publisher's dry run. Investigate every missing,
+   added or transformed file against the installed publisher's version and rules.
+   Resolve reserved-name collisions without bypassing validation, repair references
+   and repeat the comparison before uploading.
+3. Keep license authorization and attribution separate from security review and
+   behavioral acceptance. A permissive license, governance card or static scan is
+   not evidence of runtime safety or domain correctness.
+4. Separate upload acceptance, automated checks, public availability and exact-content
+   verification. Accepted-but-pending is not published. Retain the receipt and
+   inspect the same version before retrying an uncertain outcome.
+5. Retrieve the remote manifest or artifact after checks finish. Compare its
+   documented payload with reviewed hashes and intended public metadata. If
+   retrieval is unavailable, mark content identity unverified; do not infer a match
+   or submit a duplicate release.
+
+An asynchronous release needs a supported completion path or an explicit blocker
+and resume condition. Confirm follow-up registration before claiming it exists;
+never bypass registry checks to close a task.
+
+**Proposed exercise (not executed here):** a mock publisher drops a reserved file
+from a synthetic bundle. Detect the mismatch, rename the file and repair references.
+Simulate accepted-but-pending publication; verify no resubmission, bypass or success
+announcement occurs. Finally compare a retrieved payload with the inventory,
+including a negative case with one changed byte.
+
+**Review question:** Which receipt establishes acceptance, which proves public
+availability, and which proves the published bytes match the review?
+
 ## Selective adoption
 
 | Skill | Decision | Reason |

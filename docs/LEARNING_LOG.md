@@ -1,5 +1,14 @@
 # Learning log
 
+## 2026-11-12 — Publication payload identity and pending states
+
+- Reconcile the publisher's dry run with a reviewed file inventory; reserved names
+  and packaging rules can silently change upload contents.
+- Upload acceptance is not public availability or content verification. Inspect
+  the accepted version before retrying an uncertain result.
+- Keep licensing, static review, behavior tests and registry checks distinct.
+- See [Skill publication contract](AGENT_SKILLS.md#publishing-is-a-content-identity-and-state-transition-contract).
+
 ## 2026-11-11 — Confinement-preserving fixture recovery
 
 - Inspect copied modes, effective identity and policy denials before weakening controls.
