@@ -767,3 +767,40 @@ result from historical warnings and from future scheduled execution evidence.
 
 Review question: did the source lack the field, or did the evidence view deliberately
 hide it, and which safe check can distinguish those explanations?
+
+## Validate text at downstream interpreter boundaries
+
+A closed argument schema constrains field names and types, not what a downstream
+runtime does with string contents. A message body can pass validation yet contain
+control syntax that a later adapter interprets as an attachment, reply target or
+audio instruction. This is a data-to-control transition, even without shell
+execution or a model following a prompt.
+
+The cheapest discriminating check is to trace the accepted body through every
+parser and modifier to the final effectful adapter. Inspect the installed contract,
+not just the wrapper's schema. A display escaping rule is not necessarily a native
+literal-text mode; a successful plain-text send does not establish one.
+
+Use a documented literal-data path where available. Otherwise reject recognized
+control-bearing input before storage and again before native dispatch, including
+legacy stored rows. Do not silently rewrite user text or relax unrelated guards.
+Centralize the policy and cover each relevant parser's normalization behavior; a
+blacklist without a verified parser contract is not a complete security boundary.
+If the native path cannot guarantee the required semantics, report that limitation
+rather than inventing a raw mode.
+
+Final admission must occur before the effect it is meant to prevent. A post-result
+check can detect a mismatch and preserve evidence, but cannot undo a message already
+sent. Queue admission and approval checks also do not prove a final dispatch-time
+deadline; identify the actual callback boundary or explicitly offer best effort.
+
+**Proposed synthetic checks:** use an inert transport spy and synthetic directive
+fixtures. Ordinary text should reach only the intended text-send path. Recognized
+control syntax, including a legacy stored row and parser-equivalent variants,
+should be rejected before any attachment, reply-routing or audio effect. Assert
+zero effect calls on rejection, not merely an error returned after dispatch. Test
+source admission, persisted-row replay and native handoff separately. These are
+review criteria, not a claim of executed runtime validation in this repository.
+
+**Review question:** which downstream component can promote this string into
+control, and does the protective check run before that component can act?

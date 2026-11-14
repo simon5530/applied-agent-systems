@@ -1,5 +1,14 @@
 # Learning log
 
+## 2026-11-14 — Text is not inert across native adapters
+
+- A closed tool schema does not neutralize directives embedded in string fields.
+- Trace downstream parsers; reject unsupported control-bearing text before storage
+  and dispatch, including legacy rows, without silent rewriting.
+- Post-result checks are evidence, not prevention; distinguish queue admission from
+  final dispatch-time guarantees.
+- See [Downstream interpreter boundaries](PATTERN_INDEX.md#validate-text-at-downstream-interpreter-boundaries).
+
 ## 2026-11-12 — Publication payload identity and pending states
 
 - Reconcile the publisher's dry run with a reviewed file inventory; reserved names
