@@ -804,3 +804,41 @@ review criteria, not a claim of executed runtime validation in this repository.
 
 **Review question:** which downstream component can promote this string into
 control, and does the protective check run before that component can act?
+
+## Test host-origin admission before workflow orchestration
+
+An SDK method can exist and typecheck while the host refuses it for the installed
+component's provenance. A bundled component and an external extension may import
+the same interface without receiving the same capabilities. API availability,
+authentication, operation-specific admission and downstream completion are separate
+claims. A single trust flag does not establish the policy for every operation.
+
+A success-only scheduler mock can conceal this incompatibility: it proves the
+caller's behavior after an assumed acceptance, not that the real host will accept
+that caller. The cheapest discriminating check is to inspect the exact installed
+host guard and its adjacent positive/negative tests, then exercise the intended
+operation with the candidate's actual provenance in an authorized isolated host.
+Do this before building dependent orchestration around a privileged method.
+
+Maintain a small capability matrix per operation: installed host version, actual
+origin, required permission, expected admission result and observed evidence.
+Source inspection identifies a likely boundary; an isolated admission test proves
+only that tested boundary. Neither establishes production delivery. After admission,
+verify handoff acceptance, terminal execution and the correlated native effect
+receipt separately where the workflow requires them.
+
+Recover by using a documented external-origin path, narrowing the feature, or
+reporting the exact unsupported operation. Preserve the host guard. Do not spoof
+bundled provenance, grant a restricted agent broader tools, or patch an admission
+check merely to make an integration pass. Another supported capability may remain
+available even when this one is denied.
+
+**Proposed synthetic checks:** run the same harmless request from the intended
+extension origin and a separately authorized privileged fixture, asserting the
+documented allow/deny matrix. A denied request must produce zero queued turns or
+transport effects. Keep deterministic mocks for caller logic, but include a real
+host-origin admission test so an always-successful stub cannot certify integration.
+These checks are review criteria, not executed runtime evidence in this repository.
+
+**Review question:** does this test prove that the deployed caller may invoke the
+operation, or only that its code behaves correctly after permission is assumed?

@@ -1,5 +1,14 @@
 # Learning log
 
+## 2026-11-15 — Host-origin admission precedes orchestration
+
+- A shared SDK surface does not imply equal capabilities for bundled and external
+  callers; inspect operation-specific guards instead of inferring from one flag.
+- Success-only mocks hide host admission failures. Verify actual caller provenance
+  before treating a workflow as integrated, then verify completion separately.
+- Recover through supported capabilities without impersonating a privileged origin.
+- See [Host-origin admission](PATTERN_INDEX.md#test-host-origin-admission-before-workflow-orchestration).
+
 ## 2026-11-14 — Text is not inert across native adapters
 
 - A closed tool schema does not neutralize directives embedded in string fields.
