@@ -309,6 +309,37 @@ and report the unverified boundary until the intended host can execute it.
 Review question: could zero and missing input collapse to the same result, and which
 checks ran on the delivered artifact versus only on its generator or preview?
 
+### Validator compatibility and native archive acceptance
+
+An application-owned database can require custom collations or extensions that a
+stock database checker does not provide. An unsupported-collation error establishes
+a validator compatibility limit, not corruption and not a successful integrity
+check. Inspect the error phase and the format's supported validation contract before
+interpreting the result. Do not replace required semantics with a dummy collation
+or modify the source merely to make a generic checker pass.
+
+Use separate acceptance claims: application-level field readback, archive structure
+and checksums, extracted-file byte identity, native reopen, and rendered behavior.
+A checksum proves byte identity, not that an application can use those bytes. A
+successful automation call or installed integration likewise does not prove that
+native fields were inserted or the delivered document rendered correctly.
+
+When safe and authorized, close or consistently snapshot the application-owned
+package before archiving; retain the original and validate an extracted disposable
+copy with the intended application. If native reopen times out, preserve the archive
+and its verified structural evidence while marking native acceptance blocked. Do
+not blindly repeat imports, force-close the application, or weaken security to
+turn a partial result into a completion claim.
+
+**Proposed checks, not executed here:** a synthetic package should survive extraction
+with identical bytes and reopen in its supported host. A checker missing a required
+extension must report unsupported validation rather than pass or corrupt. A
+byte-identical archive with a blocked host must remain structurally verified but
+not natively accepted.
+
+**Review question:** did the checker reject the data, lack the required semantics,
+or never reach validation, and which acceptance claim does each receipt support?
+
 ## Lossy output compression is not an oracle
 
 CLI-output compression can reduce model context cost for noisy, reproducible,

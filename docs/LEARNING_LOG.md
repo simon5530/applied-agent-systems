@@ -1,5 +1,13 @@
 # Learning log
 
+## 2026-11-17 — Validator compatibility is not artifact integrity
+
+- A checker missing application-specific semantics cannot certify or disprove
+  integrity; preserve the source rather than inventing substitute semantics.
+- Separate field readback, archive checksums, byte identity and native reopen.
+  Report blocked native acceptance without discarding valid structural evidence.
+- See [Validator compatibility](PATTERN_INDEX.md#validator-compatibility-and-native-archive-acceptance).
+
 ## 2026-11-15 — Host-origin admission precedes orchestration
 
 - A shared SDK surface does not imply equal capabilities for bundled and external
