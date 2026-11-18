@@ -1,5 +1,14 @@
 # Learning log
 
+## 2026-11-18 — Approval follows risk and scoped authority
+
+- Local versus remote is not a reliable proxy for consequence or permission.
+- Reuse exact authorization, ask only for the missing material decision, and pause
+  dependent effects rather than the entire task.
+- Evaluate unnecessary interruptions separately from unauthorized actions; static
+  instruction checks do not establish runtime behavior improvements.
+- See [Human approval gate](PATTERN_INDEX.md#human-approval-gate).
+
 ## 2026-11-17 — Validator compatibility is not artifact integrity
 
 - A checker missing application-specific semantics cannot certify or disprove

@@ -177,9 +177,29 @@ reject and renegotiate rather than silently overwriting.
 
 ## Human approval gate
 
-Allow low-risk queries and reversible drafts to run automatically. Require a preview
-and explicit approval for external, destructive, financial, or socially consequential
-actions.
+Classify actions by authority, disclosure, consequence and recoverability, not
+merely local versus remote execution. A local command can destroy valuable data;
+an explicitly requested reversible save to an existing authorized audience need
+not require another confirmation solely because it uses a remote service.
+
+Proceed with clearly authorized low-risk work. For consequential communication,
+publication, spending, access changes or irreversible effects, verify approval
+covers the exact target, final payload and effect. Existing approval is not blanket
+authority, but unchanged, already-approved actions need no ritual reconfirmation.
+Tool, operating-system and sandbox gates still apply independently.
+
+Ask one specific question when a material decision is genuinely missing. Pause only
+the dependent action and continue independent authorized preparation. Do not infer
+permission for a broader audience or bypass an enforcement gate to avoid waiting.
+
+**Validation exercise:** specify expected proceed, clarify or blocked outcomes for
+a reversible local draft, an authorized remote save, an irreversible local deletion,
+a changed recipient and a denied tool call. Measure unnecessary interruptions and
+unauthorized actions separately. Static rule review does not demonstrate fresh-session
+behavior or reduced interruption rates; these cases are proposed, not executed.
+
+**Review question:** What changed in authority, payload or consequence to require
+another confirmation, and which independent work can still proceed?
 
 ## Corrections as versioned scope updates
 
