@@ -54,6 +54,42 @@ weakened oracle that makes the error disappear.
 - Bounded time or lease expiry is a checkpoint boundary, not proof of technical
   failure or completed work. Make unfinished scope explicit.
 
+## Bound read retries by source and total deadline
+
+A local timeout proves that a deadline expired, not that the provider was down or
+credentials expired. A later successful read shows recovery at that moment; it
+does not identify the earlier delay's phase. Record a bounded reason code, elapsed
+time, attempt count and accepted-page count without logging source contents.
+
+For independent read-only sources, make transient recovery a deterministic policy:
+
+- Retry only classified transient transport failures, timeouts or eligible server
+  errors. Do not blindly retry authentication, permission, quota or certificate
+  failures; follow their distinct consent, wait or security paths.
+- Bound both attempts per source and total elapsed time, including backoff,
+  pagination and cleanup. Cap each attempt by the remaining budget, and propagate
+  cancellation to the underlying request; a timed-out wrapper must not leave
+  overlapping reads running. Check the total deadline before every page and retry.
+- Keep validated results from healthy sources. Retain accepted pages with their
+  checkpoint and explicit incomplete status; resume only when the source's cursor
+  and snapshot contract allow it. Otherwise restart that source within budget and
+  deduplicate by stable identity, without treating retained pages as complete.
+- Preserve downstream deduplication and failure/recovery notification state. A
+  retry must neither replay accepted notifications nor silently turn unavailable
+  source coverage into zero records.
+
+**Proposed synthetic checks:** transient failure then success; persistent timeout;
+non-retryable denial; timeout after an accepted page; exhausted total budget; and
+one failed source alongside a healthy source. Assert attempt limits, cancellation,
+accepted-page integrity, coverage flags and unchanged notification deduplication.
+Use a fake clock for deadlines. These are review criteria, not executed runtime
+evidence in this learning repository. Keep implementation tests and live scheduled
+acceptance in the owning project; unit success and actual scheduled recovery are
+separate claims.
+
+**Review question:** if one source times out after a page was accepted, which data
+remain trustworthy, what may be retried, and what proves the run is still incomplete?
+
 ## Put the controller in the effective runtime
 
 Scheduled work must receive the recovery branch, available commands, evidence

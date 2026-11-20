@@ -1,5 +1,14 @@
 # Learning log
 
+## 2026-11-20 — Source retries need a shared deadline and coverage state
+
+- A timeout is an observation, not a provider-outage or credential diagnosis.
+- Bound transient read retries by source and total elapsed budget; cancel expired
+  requests and preserve accepted pages without claiming complete coverage.
+- Keep independent healthy results and notification deduplication stable; separate
+  synthetic policy checks from actual scheduled recovery evidence.
+- See [Bounded read retries](BOUNDED_TASK_RECOVERY.md#bound-read-retries-by-source-and-total-deadline).
+
 ## 2026-11-18 — Approval follows risk and scoped authority
 
 - Local versus remote is not a reliable proxy for consequence or permission.
