@@ -10,6 +10,21 @@ flags, while downstream analysis retains its own stricter prerequisite.
 
 See [Bounded task recovery](BOUNDED_TASK_RECOVERY.md).
 
+## Regulatory scope follows role and activity, not licence
+
+Treat a licence, provider/deployer role, output type and jurisdiction as different
+inputs. Gate the actual activity, applicable date and specific exception before
+assigning a duty. Public code, private use, a hosted service and a model release
+are not interchangeable. Preserve uncertainty instead of inventing a universal
+AI label, open-source exemption or compliance verdict.
+
+Keep interaction identity, content provenance, decision explanation and human
+responsibility separate. An AI-assisted public note may warrant its own disclosure
+assessment even when the repository does not itself supply an inference service.
+The note below discloses AI assistance without asserting a legal exemption.
+
+See [AI transparency, open source and deployment responsibility](AI_TRANSPARENCY_OPEN_SOURCE.md).
+
 ## Least privilege
 
 Grant only the data and actions required for one workflow. A guest-facing agent should

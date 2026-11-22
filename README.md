@@ -49,6 +49,7 @@ hub creates one durable map without turning every project README into a textbook
 - [Model and workflow portability](docs/MODEL_PORTABILITY.md)
 - [Pattern index](docs/PATTERN_INDEX.md)
 - [Agent skill design and adoption](docs/AGENT_SKILLS.md)
+- [AI transparency, open source and deployment responsibility](docs/AI_TRANSPARENCY_OPEN_SOURCE.md)
 - [Learning log](docs/LEARNING_LOG.md)
 - [Learning capture workflow](docs/LEARNING_CAPTURE.md)
 - [Publication security gate](docs/PUBLICATION_SECURITY_GATE.md)

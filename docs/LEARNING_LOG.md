@@ -1,5 +1,14 @@
 # Learning log
 
+## 2026-11-22 — A licence is not a deployment role
+
+- Separate public code, FOSS systems, open-weights models, hosted services and professional use; a label or licence does not settle regulatory scope.
+- Gate actor, activity, output, jurisdiction, applicable date and the specific exception before assigning a duty.
+- Keep interaction notice, visible disclosure, machine-readable provenance and consequential-decision explanations distinct.
+- Compare binding law with proposals/guidance, and preserve uncertainty instead of exporting one jurisdiction's personal-use exception to another.
+- See [AI transparency and open source](AI_TRANSPARENCY_OPEN_SOURCE.md).
+
+
 ## 2026-11-20 — Source retries need a shared deadline and coverage state
 
 - A timeout is an observation, not a provider-outage or credential diagnosis.
