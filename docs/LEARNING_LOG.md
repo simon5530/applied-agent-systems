@@ -1,5 +1,17 @@
 # Learning log
 
+## 2026-11-23 — Development history is not a registry release
+
+- **[suggested] Learning note, 2026-11-23:** keep
+  one explicit development source and a separate authorized registry-release step.
+- Map the full source commit to a reviewed export manifest, explicit registry
+  version and retrieved payload digests; a branch, upload receipt or version name
+  alone does not prove content identity.
+- Do not blindly sync whole workspaces or release every commit. Label unreleased
+  changes and partial behavior validation without upgrading them into release claims.
+- See [source-of-truth and release boundaries](SOURCE_OF_TRUTH_AND_RELEASES.md).
+  The proposed exercise has not been executed in this hub.
+
 ## 2026-11-22 — A licence is not a deployment role
 
 - Separate public code, FOSS systems, open-weights models, hosted services and professional use; a label or licence does not settle regulatory scope.
